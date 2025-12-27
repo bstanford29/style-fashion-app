@@ -1,0 +1,53 @@
+{
+  "character": {
+    "id": "default",
+    "name": "Alex",
+    "skinTones": [
+      { "id": "skin01", "name": "Light", "imagePath": "/assets/characters/base_skin01.png" },
+      { "id": "skin02", "name": "Medium Light", "imagePath": "/assets/characters/base_skin02.png" },
+      { "id": "skin03", "name": "Medium", "imagePath": "/assets/characters/base_skin03.png" },
+      { "id": "skin04", "name": "Medium Dark", "imagePath": "/assets/characters/base_skin04.png" },
+      { "id": "skin05", "name": "Dark", "imagePath": "/assets/characters/base_skin05.png" }
+    ]
+  },
+  "categories": [
+    { "id": "hair", "name": "Hair", "icon": "scissors" },
+    { "id": "top", "name": "Tops", "icon": "shirt" },
+    { "id": "bottom", "name": "Bottoms", "icon": "trousers" },
+    { "id": "shoes", "name": "Shoes", "icon": "footprints" },
+    { "id": "accessory", "name": "Accessories", "icon": "gem" }
+  ],
+  "items": [
+    { "id": "hair_001", "name": "Ponytail", "category": "hair", "imagePath": "/assets/clothing/hair_001.png", "thumbnailPath": "/assets/clothing/thumb_hair_001.png", "zIndex": 60 },
+    { "id": "hair_002", "name": "Pigtails", "category": "hair", "imagePath": "/assets/clothing/hair_002.png", "thumbnailPath": "/assets/clothing/thumb_hair_002.png", "zIndex": 60 },
+    { "id": "hair_003", "name": "Short Curly", "category": "hair", "imagePath": "/assets/clothing/hair_003.png", "thumbnailPath": "/assets/clothing/thumb_hair_003.png", "zIndex": 60 },
+    { "id": "hair_004", "name": "Long Straight", "category": "hair", "imagePath": "/assets/clothing/hair_004.png", "thumbnailPath": "/assets/clothing/thumb_hair_004.png", "zIndex": 60 },
+    { "id": "hair_005", "name": "Braids", "category": "hair", "imagePath": "/assets/clothing/hair_005.png", "thumbnailPath": "/assets/clothing/thumb_hair_005.png", "zIndex": 60 },
+    { "id": "hair_006", "name": "Bun", "category": "hair", "imagePath": "/assets/clothing/hair_006.png", "thumbnailPath": "/assets/clothing/thumb_hair_006.png", "zIndex": 60 },
+
+    { "id": "top_001", "name": "Striped Tee", "category": "top", "imagePath": "/assets/clothing/top_001.png", "thumbnailPath": "/assets/clothing/thumb_top_001.png", "zIndex": 30 },
+    { "id": "top_002", "name": "Polka Dot Blouse", "category": "top", "imagePath": "/assets/clothing/top_002.png", "thumbnailPath": "/assets/clothing/thumb_top_002.png", "zIndex": 30 },
+    { "id": "top_003", "name": "Hoodie", "category": "top", "imagePath": "/assets/clothing/top_003.png", "thumbnailPath": "/assets/clothing/thumb_top_003.png", "zIndex": 30 },
+    { "id": "top_004", "name": "Tank Top", "category": "top", "imagePath": "/assets/clothing/top_004.png", "thumbnailPath": "/assets/clothing/thumb_top_004.png", "zIndex": 30 },
+    { "id": "top_005", "name": "Sweater", "category": "top", "imagePath": "/assets/clothing/top_005.png", "thumbnailPath": "/assets/clothing/thumb_top_005.png", "zIndex": 30 },
+    { "id": "top_006", "name": "Dress", "category": "top", "imagePath": "/assets/clothing/top_006.png", "thumbnailPath": "/assets/clothing/thumb_top_006.png", "zIndex": 30 },
+
+    { "id": "bottom_001", "name": "Jeans", "category": "bottom", "imagePath": "/assets/clothing/bottom_001.png", "thumbnailPath": "/assets/clothing/thumb_bottom_001.png", "zIndex": 20 },
+    { "id": "bottom_002", "name": "Skirt", "category": "bottom", "imagePath": "/assets/clothing/bottom_002.png", "thumbnailPath": "/assets/clothing/thumb_bottom_002.png", "zIndex": 20 },
+    { "id": "bottom_003", "name": "Shorts", "category": "bottom", "imagePath": "/assets/clothing/bottom_003.png", "thumbnailPath": "/assets/clothing/thumb_bottom_003.png", "zIndex": 20 },
+    { "id": "bottom_004", "name": "Leggings", "category": "bottom", "imagePath": "/assets/clothing/bottom_004.png", "thumbnailPath": "/assets/clothing/thumb_bottom_004.png", "zIndex": 20 },
+    { "id": "bottom_005", "name": "Tutu", "category": "bottom", "imagePath": "/assets/clothing/bottom_005.png", "thumbnailPath": "/assets/clothing/thumb_bottom_005.png", "zIndex": 20 },
+
+    { "id": "shoes_001", "name": "Sneakers", "category": "shoes", "imagePath": "/assets/clothing/shoes_001.png", "thumbnailPath": "/assets/clothing/thumb_shoes_001.png", "zIndex": 10 },
+    { "id": "shoes_002", "name": "Ballet Flats", "category": "shoes", "imagePath": "/assets/clothing/shoes_002.png", "thumbnailPath": "/assets/clothing/thumb_shoes_002.png", "zIndex": 10 },
+    { "id": "shoes_003", "name": "Boots", "category": "shoes", "imagePath": "/assets/clothing/shoes_003.png", "thumbnailPath": "/assets/clothing/thumb_shoes_003.png", "zIndex": 10 },
+    { "id": "shoes_004", "name": "Sandals", "category": "shoes", "imagePath": "/assets/clothing/shoes_004.png", "thumbnailPath": "/assets/clothing/thumb_shoes_004.png", "zIndex": 10 },
+    { "id": "shoes_005", "name": "High Tops", "category": "shoes", "imagePath": "/assets/clothing/shoes_005.png", "thumbnailPath": "/assets/clothing/thumb_shoes_005.png", "zIndex": 10 },
+
+    { "id": "accessory_001", "name": "Sunglasses", "category": "accessory", "imagePath": "/assets/clothing/accessory_001.png", "thumbnailPath": "/assets/clothing/thumb_accessory_001.png", "zIndex": 50 },
+    { "id": "accessory_002", "name": "Necklace", "category": "accessory", "imagePath": "/assets/clothing/accessory_002.png", "thumbnailPath": "/assets/clothing/thumb_accessory_002.png", "zIndex": 50 },
+    { "id": "accessory_003", "name": "Bow", "category": "accessory", "imagePath": "/assets/clothing/accessory_003.png", "thumbnailPath": "/assets/clothing/thumb_accessory_003.png", "zIndex": 50 },
+    { "id": "accessory_004", "name": "Backpack", "category": "accessory", "imagePath": "/assets/clothing/accessory_004.png", "thumbnailPath": "/assets/clothing/thumb_accessory_004.png", "zIndex": 50 },
+    { "id": "accessory_005", "name": "Crown", "category": "accessory", "imagePath": "/assets/clothing/accessory_005.png", "thumbnailPath": "/assets/clothing/thumb_accessory_005.png", "zIndex": 70 }
+  ]
+}

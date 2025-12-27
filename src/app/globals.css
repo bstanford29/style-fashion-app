@@ -30,3 +30,248 @@ body {
 html, body {
   overscroll-behavior: none;
 }
+
+/* Character Display Animations */
+@keyframes equip {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes unequip {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.animate-equip {
+  animation: equip 0.3s ease-out forwards;
+}
+
+.animate-unequip {
+  animation: unequip 0.2s ease-in forwards;
+}
+
+/* Delay utilities for staggered sparkle animations */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+/* ========================================
+   DoneButton & RunwayModal Animations
+   ======================================== */
+
+/* Gentle bounce for the Done button */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* Fade in for modal backdrop */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Scale bounce in for modal content */
+@keyframes scale-bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-bounce-in {
+  animation: scale-bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Character bounce animation */
+@keyframes character-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-8px);
+  }
+  75% {
+    transform: translateY(4px);
+  }
+}
+
+.animate-character-bounce {
+  animation: character-bounce 1.5s ease-in-out infinite;
+}
+
+/* Confetti falling animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti-fall {
+  animation: confetti-fall 4s ease-out forwards;
+}
+
+/* Confetti spin animation */
+@keyframes confetti-spin {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(180deg);
+  }
+}
+
+.animate-confetti-spin {
+  animation: confetti-spin 2s linear infinite;
+}
+
+/* Sparkle burst animation */
+@keyframes sparkle-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(360deg);
+  }
+}
+
+.animate-sparkle-burst {
+  animation: sparkle-burst 1.5s ease-out forwards;
+  animation-iteration-count: infinite;
+}
+
+/* Float up animation for shapes */
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.3);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 3s ease-out forwards;
+  animation-iteration-count: infinite;
+}
+
+/* Shimmer effect for text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Slide up animation for input */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+/* Animation delay utility */
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+/* Radial gradient utility for spotlight effect */
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+}
+
+/* ========================================
+   ItemGrid Animations
+   ======================================== */
+
+/* Fade in and slide up animation for item cards */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.3s ease-out forwards;
+}
