@@ -124,7 +124,7 @@ export function CharacterDisplay({
       {!hasAnyItems && !isDragOver && (
         <div className="absolute bottom-6 left-0 right-0 text-center">
           <p className="text-pink-400 dark:text-pink-300 text-sm font-medium animate-pulse">
-            Drag clothes to dress me up!
+            Tap an item to dress me up!
           </p>
         </div>
       )}
