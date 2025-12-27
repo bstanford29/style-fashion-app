@@ -129,13 +129,12 @@ export function OutfitBuilder() {
           onDrop={handleDrop}
         />
 
-        {/* Skin Tone Selector */}
-        <div className="absolute top-4 right-4">
+        {/* Bottom controls row */}
+        <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+          {/* Skin Tone Selector - bottom left */}
           <SkinToneSelector />
-        </div>
 
-        {/* Done Button */}
-        <div className="absolute bottom-4 right-4">
+          {/* Done Button - bottom right */}
           <DoneButton
             hasEquippedItems={hasEquippedItems}
             onClick={() => setShowRunway(true)}

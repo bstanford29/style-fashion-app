@@ -65,6 +65,9 @@ const HAIR_COMPONENTS: Record<string, React.ComponentType<{ color?: string; clas
   hair_005: BraidsHair,
 }
 
+/** Hair styles that have parts that should render BEHIND the body (ponytails, braids, long hair) */
+const HAIR_RENDERS_BEHIND_BODY = ['hair_001', 'hair_003', 'hair_005'] // Long straight, ponytail, braids
+
 const TOP_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
   top_001: BasicTShirt,
   top_002: TankTop,
@@ -112,6 +115,9 @@ export function SVGCharacter({
 
   const animationClass = animate ? 'animate-equip' : ''
 
+  // Check if current hair should render behind body
+  const hairRendersBehind = equippedItems.hair && HAIR_RENDERS_BEHIND_BODY.includes(equippedItems.hair)
+
   return (
     <div className={`relative w-full h-full ${className}`}>
       {/* Main SVG Container - all layers rendered in order */}
@@ -121,10 +127,10 @@ export function SVGCharacter({
         preserveAspectRatio="xMidYMid meet"
         aria-label="Dressed character"
       >
-        {/* Layer 1: Hair Back (behind everything) */}
-        {HairComponent && (
+        {/* Layer 1: Hair Back (behind body for ponytails, braids, long hair) */}
+        {HairComponent && hairRendersBehind && (
           <g className={animationClass} data-layer="hair-back">
-            {/* Hair back layer would go here if component supports it */}
+            <HairComponent />
           </g>
         )}
 
@@ -154,8 +160,8 @@ export function SVGCharacter({
           </g>
         )}
 
-        {/* Layer 6: Hair Front (bangs over face) */}
-        {HairComponent && (
+        {/* Layer 6: Hair Front (bangs over face) - only for hair that doesn't go behind body */}
+        {HairComponent && !hairRendersBehind && (
           <g className={animationClass} data-layer="hair-front">
             <HairComponent />
           </g>
