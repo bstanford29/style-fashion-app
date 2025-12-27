@@ -101,40 +101,40 @@ export function OutfitBuilder() {
         />
       </div>
 
-      {/* Right side: Character Display + Done Button */}
-      <div
-        className="flex-1 flex flex-col items-center justify-center relative"
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={(e) => {
-          e.preventDefault()
-          console.log('🔥 onDrop fired!')
-          console.log('📌 draggedItem state:', draggedItem)
-          const dataTransferId = e.dataTransfer.getData('text/plain')
-          console.log('📌 dataTransfer ID:', dataTransferId)
-          // Get item ID from either the local state or dataTransfer
-          const itemId = draggedItem || dataTransferId
-          console.log('📌 Final itemId:', itemId)
-          if (itemId) {
-            handleDrop(itemId)
-          } else {
-            console.log('❌ No itemId found!')
-          }
-        }}
-      >
-        <CharacterDisplay
-          skinTone={state.skinTone}
-          equippedItems={state.equipped}
-          isDragOver={isDragOver || dragState.isOverDropZone}
-          onDrop={handleDrop}
-        />
+      {/* Right side: Character Display + Controls */}
+      <div className="flex-1 flex flex-col items-center gap-4">
+        {/* Character Display Area */}
+        <div
+          className="flex-1 flex items-center justify-center w-full"
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={(e) => {
+            e.preventDefault()
+            console.log('🔥 onDrop fired!')
+            console.log('📌 draggedItem state:', draggedItem)
+            const dataTransferId = e.dataTransfer.getData('text/plain')
+            console.log('📌 dataTransfer ID:', dataTransferId)
+            // Get item ID from either the local state or dataTransfer
+            const itemId = draggedItem || dataTransferId
+            console.log('📌 Final itemId:', itemId)
+            if (itemId) {
+              handleDrop(itemId)
+            } else {
+              console.log('❌ No itemId found!')
+            }
+          }}
+        >
+          <CharacterDisplay
+            skinTone={state.skinTone}
+            equippedItems={state.equipped}
+            isDragOver={isDragOver || dragState.isOverDropZone}
+            onDrop={handleDrop}
+          />
+        </div>
 
-        {/* Bottom controls row */}
-        <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-          {/* Skin Tone Selector - bottom left */}
+        {/* Controls row - BELOW character, not overlapping */}
+        <div className="flex items-center gap-4 pb-2">
           <SkinToneSelector />
-
-          {/* Done Button - bottom right */}
           <DoneButton
             hasEquippedItems={hasEquippedItems}
             onClick={() => setShowRunway(true)}
