@@ -33,7 +33,7 @@ const emptyEquipped: EquippedItems = {
 const initialState: OutfitState = {
   selectedCategory: 'top',
   equipped: { ...emptyEquipped },
-  skinTone: 'light',
+  skinTone: 'skin01', // Matches CharacterBase.tsx skin tone IDs (skin01-skin05)
   savedOutfits: [],
 }
 

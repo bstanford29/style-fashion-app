@@ -7,13 +7,12 @@ import { Gallery } from '@/components/Gallery'
 
 export default function ShellPreview() {
   const [activeTab, setActiveTab] = useState<'create' | 'gallery'>('create')
-  const [showSettings, setShowSettings] = useState(false)
 
   return (
     <AppShell
       activeTab={activeTab}
       onTabChange={setActiveTab}
-      onSettingsClick={() => setShowSettings(true)}
+      onSettingsClick={() => {}}
     >
       {activeTab === 'create' ? (
         <OutfitBuilder />

@@ -6,22 +6,29 @@ import { CategorySelector, ClothingCategory } from './CategorySelector'
 import { ItemGrid } from './ItemGrid'
 import DoneButton from './DoneButton'
 import RunwayModal from './RunwayModal'
+import SkinToneSelector from './SkinToneSelector'
 import { useOutfit } from '@/context/OutfitContext'
-import clothingData from '@/../product/sections/outfit-builder/data.json'
+import { useDrag } from '@/context/DragContext'
+import { CLOTHING_ITEMS, getItemsByCategory } from '@/data/clothing-items'
 
 export function OutfitBuilder() {
   const { state, selectCategory, equipItem, saveOutfit, hasEquippedItems } = useOutfit()
+  const { state: dragState, setOverDropZone } = useDrag()
   const [isDragOver, setIsDragOver] = useState(false)
   const [draggedItem, setDraggedItem] = useState<string | null>(null)
   const [showRunway, setShowRunway] = useState(false)
 
-  // Filter items by selected category
-  const filteredItems = clothingData.items.filter(
-    (item) => item.category === state.selectedCategory
-  )
+  // Get items from our new typed data for the selected category
+  const filteredItems = getItemsByCategory(state.selectedCategory).map(item => ({
+    id: item.id,
+    name: item.name,
+    category: item.category,
+    thumbnailPath: '', // SVG components are used instead
+  }))
 
   // Handle drag start
   const handleDragStart = useCallback((itemId: string) => {
+    console.log('🚀 handleDragStart called with:', itemId)
     setDraggedItem(itemId)
   }, [])
 
@@ -29,28 +36,37 @@ export function OutfitBuilder() {
   const handleDragEnd = useCallback(() => {
     setDraggedItem(null)
     setIsDragOver(false)
-  }, [])
+    setOverDropZone(false)
+  }, [setOverDropZone])
 
   // Handle drop on character
   const handleDrop = useCallback((itemId: string) => {
-    const item = clothingData.items.find((i) => i.id === itemId)
+    console.log('🎯 handleDrop called with itemId:', itemId)
+    const item = CLOTHING_ITEMS.find((i) => i.id === itemId)
+    console.log('📦 Found item:', item)
     if (item) {
+      console.log('✅ Calling equipItem with:', item.category, itemId)
       equipItem(item.category as ClothingCategory, itemId)
+    } else {
+      console.log('❌ Item not found in CLOTHING_ITEMS')
     }
     setDraggedItem(null)
     setIsDragOver(false)
-  }, [equipItem])
+    setOverDropZone(false)
+  }, [equipItem, setOverDropZone])
 
   // Handle drag over character
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault()
     setIsDragOver(true)
-  }, [])
+    setOverDropZone(true)
+  }, [setOverDropZone])
 
   // Handle drag leave character
   const handleDragLeave = useCallback(() => {
     setIsDragOver(false)
-  }, [])
+    setOverDropZone(false)
+  }, [setOverDropZone])
 
   // Handle save outfit
   const handleSaveOutfit = useCallback((name: string) => {
@@ -74,6 +90,7 @@ export function OutfitBuilder() {
             items={filteredItems}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
+            onItemClick={handleDrop}
           />
         </div>
 
@@ -91,17 +108,31 @@ export function OutfitBuilder() {
         onDragLeave={handleDragLeave}
         onDrop={(e) => {
           e.preventDefault()
-          if (draggedItem) {
-            handleDrop(draggedItem)
+          console.log('🔥 onDrop fired!')
+          console.log('📌 draggedItem state:', draggedItem)
+          const dataTransferId = e.dataTransfer.getData('text/plain')
+          console.log('📌 dataTransfer ID:', dataTransferId)
+          // Get item ID from either the local state or dataTransfer
+          const itemId = draggedItem || dataTransferId
+          console.log('📌 Final itemId:', itemId)
+          if (itemId) {
+            handleDrop(itemId)
+          } else {
+            console.log('❌ No itemId found!')
           }
         }}
       >
         <CharacterDisplay
           skinTone={state.skinTone}
           equippedItems={state.equipped}
-          isDragOver={isDragOver}
+          isDragOver={isDragOver || dragState.isOverDropZone}
           onDrop={handleDrop}
         />
+
+        {/* Skin Tone Selector */}
+        <div className="absolute top-4 right-4">
+          <SkinToneSelector />
+        </div>
 
         {/* Done Button */}
         <div className="absolute bottom-4 right-4">
