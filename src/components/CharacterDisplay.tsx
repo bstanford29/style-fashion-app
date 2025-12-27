@@ -1,13 +1,13 @@
 'use client'
 
 import { useMemo } from 'react'
-import Image from 'next/image'
+import { SVGCharacter } from './character/SVGCharacter'
 
 /**
  * Props for the CharacterDisplay component
  */
 export interface CharacterDisplayProps {
-  /** The skin tone ID for the base character image */
+  /** The skin tone ID for the base character image (skin01-skin05) */
   skinTone: string
   /** Currently equipped items by category slot */
   equippedItems: {
@@ -26,29 +26,8 @@ export interface CharacterDisplayProps {
 }
 
 /**
- * Layer configuration for clothing items
- * z-index values control the visual stacking order
- */
-const LAYER_Z_INDEX: Record<string, number> = {
-  base: 0,
-  shoes: 10,
-  bottom: 20,
-  top: 30,
-  accessory: 50,
-  hair: 60,
-}
-
-/**
  * CharacterDisplay - The main character canvas for the dress-up game
- *
- * Displays a character using layered PNG images. All images are 800x1200px
- * and pre-rendered to fit the character's pose perfectly.
- *
- * Features:
- * - Layered PNG composition with proper z-index ordering
- * - Responsive scaling while maintaining aspect ratio
- * - Drop zone visual feedback for drag-and-drop
- * - Dark mode support
+ * Now uses SVG-based fashion doll character with proper clothing overlays
  */
 export function CharacterDisplay({
   skinTone,
@@ -57,52 +36,31 @@ export function CharacterDisplay({
   onDrop,
   className = '',
 }: CharacterDisplayProps) {
-  // Compute the base character image path
-  const baseImagePath = useMemo(() => {
-    return `/assets/characters/base_${skinTone}.png`
-  }, [skinTone])
-
-  // Build the layers array for rendering
-  const layers = useMemo(() => {
-    const layerItems: Array<{
-      key: string
-      imagePath: string
-      zIndex: number
-    }> = []
-
-    // Add equipped items as layers
-    for (const [slot, itemId] of Object.entries(equippedItems)) {
-      if (itemId) {
-        layerItems.push({
-          key: `${slot}-${itemId}`,
-          imagePath: `/assets/clothing/${itemId}.png`,
-          zIndex: LAYER_Z_INDEX[slot] ?? 0,
-        })
-      }
-    }
-
-    // Sort by z-index for correct layering
-    return layerItems.sort((a, b) => a.zIndex - b.zIndex)
-  }, [equippedItems])
-
   // Handle drag events
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
+    e.stopPropagation()
     e.dataTransfer.dropEffect = 'copy'
   }
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
+    e.stopPropagation()
     const itemId = e.dataTransfer.getData('text/plain')
+    console.log('🎨 CharacterDisplay handleDrop - itemId:', itemId)
     if (itemId && onDrop) {
       onDrop(itemId)
     }
   }
 
+  const hasAnyItems = useMemo(() => {
+    return Object.values(equippedItems).some(Boolean)
+  }, [equippedItems])
+
   return (
     <div
       className={`
-        relative w-full aspect-[2/3] max-w-md mx-auto
+        relative w-full aspect-[3/5] max-w-sm mx-auto
         rounded-3xl overflow-hidden
         bg-gradient-to-b from-cyan-50 via-pink-50 to-violet-100
         dark:from-slate-800 dark:via-slate-800 dark:to-slate-700
@@ -121,25 +79,25 @@ export function CharacterDisplay({
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft radial glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-white/30 dark:bg-white/5 rounded-full blur-3xl" />
-
-        {/* Sparkle decorations for kid-friendly feel */}
         <div className="absolute top-4 left-4 w-2 h-2 bg-pink-300 dark:bg-pink-500/50 rounded-full animate-pulse" />
-        <div className="absolute top-8 right-6 w-1.5 h-1.5 bg-violet-300 dark:bg-violet-500/50 rounded-full animate-pulse delay-100" />
-        <div className="absolute bottom-12 left-6 w-1 h-1 bg-cyan-300 dark:bg-cyan-500/50 rounded-full animate-pulse delay-200" />
-        <div className="absolute bottom-20 right-4 w-2 h-2 bg-pink-200 dark:bg-pink-500/30 rounded-full animate-pulse delay-300" />
+        <div className="absolute top-8 right-6 w-1.5 h-1.5 bg-violet-300 dark:bg-violet-500/50 rounded-full animate-pulse" />
+        <div className="absolute bottom-12 left-6 w-1 h-1 bg-cyan-300 dark:bg-cyan-500/50 rounded-full animate-pulse" />
+        <div className="absolute bottom-20 right-4 w-2 h-2 bg-pink-200 dark:bg-pink-500/30 rounded-full animate-pulse" />
       </div>
 
       {/* Drop zone indicator overlay */}
       {isDragOver && (
         <div className="absolute inset-0 z-[100] pointer-events-none">
-          {/* Pulsing border effect */}
+          {/* Animated dashed border */}
           <div className="absolute inset-2 rounded-2xl border-4 border-dashed border-pink-400 dark:border-pink-500 animate-pulse" />
 
-          {/* Center drop hint */}
+          {/* Glowing overlay */}
+          <div className="absolute inset-0 bg-pink-400/10 dark:bg-pink-500/10 animate-pulse" />
+
+          {/* Drop here text */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl">
+            <div className="bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl border-2 border-pink-300 dark:border-pink-500">
               <p
                 className="text-pink-500 dark:text-pink-400 font-bold text-lg"
                 style={{ fontFamily: 'Fredoka One, sans-serif' }}
@@ -151,38 +109,60 @@ export function CharacterDisplay({
         </div>
       )}
 
-      {/* Character layers container */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        {/* Inner container maintains 800x1200 aspect ratio */}
-        <div className="relative w-full h-full">
-          {/* Base character layer */}
-          <Image
-            src={baseImagePath}
-            alt="Character base"
-            fill
-            className="object-contain"
-            style={{ zIndex: LAYER_Z_INDEX.base }}
-            draggable={false}
-            priority
+      {/* SVG Fashion Doll Character */}
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full h-full max-h-[95%]">
+          <SVGCharacter
+            skinTone={skinTone}
+            equippedItems={equippedItems}
+            animate={true}
           />
-
-          {/* Equipped clothing layers */}
-          {layers.map(({ key, imagePath, zIndex }) => (
-            <Image
-              key={key}
-              src={imagePath}
-              alt=""
-              fill
-              className="object-contain transition-opacity duration-200 animate-equip"
-              style={{ zIndex }}
-              draggable={false}
-            />
-          ))}
         </div>
       </div>
 
-      {/* Bottom reflection/shadow for grounding */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-8 bg-gradient-to-t from-slate-900/10 dark:from-black/20 to-transparent rounded-full blur-md" />
+      {/* Hint text when no items */}
+      {!hasAnyItems && !isDragOver && (
+        <div className="absolute bottom-6 left-0 right-0 text-center">
+          <p className="text-pink-400 dark:text-pink-300 text-sm font-medium animate-pulse">
+            Drag clothes to dress me up!
+          </p>
+        </div>
+      )}
+
+      {/* Bottom shadow for grounding */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-6 bg-gradient-to-t from-slate-900/10 dark:from-black/20 to-transparent rounded-full blur-md" />
+
+      {/* CSS for equip animation */}
+      <style jsx>{`
+        @keyframes equip-bounce {
+          0% {
+            transform: scale(1.2);
+            opacity: 0.7;
+          }
+          50% {
+            transform: scale(0.95);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        :global(.animate-equip) {
+          animation: equip-bounce 0.3s ease-out;
+        }
+
+        @keyframes glow-pulse {
+          0%,
+          100% {
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 40px rgba(244, 114, 182, 0.6);
+          }
+        }
+      `}</style>
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { OutfitProvider } from "@/context/OutfitContext";
+import { DragProvider } from "@/context/DragContext";
+import DragPreview from "@/components/DragPreview";
 
 export const metadata: Metadata = {
   title: "Dressy - Kids Dress-Up Game",
@@ -16,7 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <OutfitProvider>
-          {children}
+          <DragProvider>
+            {children}
+            {/* Global drag preview that follows cursor */}
+            <DragPreview />
+          </DragProvider>
         </OutfitProvider>
       </body>
     </html>
