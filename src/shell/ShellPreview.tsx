@@ -12,7 +12,6 @@ export default function ShellPreview() {
     <AppShell
       activeTab={activeTab}
       onTabChange={setActiveTab}
-      onSettingsClick={() => {}}
     >
       {activeTab === 'create' ? (
         <OutfitBuilder />

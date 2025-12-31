@@ -1,6 +1,8 @@
 'use client'
 
 import { CharacterBase } from './CharacterBase'
+import { getItemById } from '@/data/clothing-items'
+import type { EquippedItems } from '@/lib/types'
 import {
   LongStraightHair,
   ShortBobHair,
@@ -61,14 +63,6 @@ import {
   Backpack,
   Glasses,
 } from './clothing/AccessoriesNew'
-
-export interface EquippedItems {
-  hair: string | null
-  top: string | null
-  bottom: string | null
-  shoes: string | null
-  accessory: string | null
-}
 
 export interface SVGCharacterProps {
   /** Skin tone ID - skin01 through skin05 */
@@ -146,6 +140,9 @@ export function SVGCharacter({
   className = '',
   animate = true,
 }: SVGCharacterProps) {
+  // Helper to get color from data layer
+  const getColor = (id: string | null) => id ? getItemById(id)?.defaultColor : undefined
+
   // Get component references for equipped items
   const HairComponent = equippedItems.hair ? HAIR_COMPONENTS[equippedItems.hair] : null
   const TopComponent = equippedItems.top ? TOP_COMPONENTS[equippedItems.top] : null
@@ -170,7 +167,7 @@ export function SVGCharacter({
         {/* Layer 1: Hair Back (behind body for ponytails, braids, long hair) */}
         {HairComponent && hairRendersBehind && (
           <g className={animationClass} data-layer="hair-back">
-            <HairComponent />
+            <HairComponent color={getColor(equippedItems.hair)} />
           </g>
         )}
 
@@ -182,60 +179,39 @@ export function SVGCharacter({
         {/* Layer 3: Bottoms (pants/skirts over legs) - rendered first */}
         {BottomComponent && (
           <g className={animationClass} data-layer="bottom">
-            <BottomComponent />
+            <BottomComponent color={getColor(equippedItems.bottom)} />
           </g>
         )}
 
         {/* Layer 4: Shoes (on top of bottoms - boots cover jeans, sneakers cover pant hem) */}
         {ShoesComponent && (
           <g className={animationClass} data-layer="shoes">
-            <ShoesComponent />
+            <ShoesComponent color={getColor(equippedItems.shoes)} />
           </g>
         )}
 
         {/* Layer 5: Tops (shirts over torso) */}
         {TopComponent && (
           <g className={animationClass} data-layer="top">
-            <TopComponent />
+            <TopComponent color={getColor(equippedItems.top)} />
           </g>
         )}
 
         {/* Layer 6: Hair Front (bangs over face) - only for hair that doesn't go behind body */}
         {HairComponent && !hairRendersBehind && (
           <g className={animationClass} data-layer="hair-front">
-            <HairComponent />
+            <HairComponent color={getColor(equippedItems.hair)} />
           </g>
         )}
 
         {/* Layer 7: Accessories (on top of everything) */}
         {AccessoryComponent && (
           <g className={animationClass} data-layer="accessory">
-            <AccessoryComponent />
+            <AccessoryComponent color={getColor(equippedItems.accessory)} />
           </g>
         )}
       </svg>
 
-      {/* CSS for equip animation */}
-      <style jsx>{`
-        @keyframes equip-bounce {
-          0% {
-            transform: scale(1.2);
-            opacity: 0.7;
-          }
-          50% {
-            transform: scale(0.95);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-
-        .animate-equip {
-          animation: equip-bounce 0.3s ease-out;
-        }
-      `}</style>
     </div>
   )
 }

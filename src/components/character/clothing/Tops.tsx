@@ -24,73 +24,73 @@ export function BasicTShirt({ color = '#FF6B6B', className = '' }: TopProps) {
 
   return (
     <g className={className} data-item="basic-tshirt">
-      {/* Main body */}
+      {/* Main body - extended to cover from shoulders (y=170) to below waist (y=380) for overlap with bottoms */}
       <path
-        d="M 90 185
-           Q 85 220, 88 260
-           Q 90 310, 95 355
-           Q 125 365, 150 365
-           Q 175 365, 205 355
-           Q 210 310, 212 260
-           Q 215 220, 210 185
-           Q 185 175, 150 175
-           Q 115 175, 90 185
+        d="M 88 175
+           Q 82 210, 85 260
+           Q 88 320, 92 380
+           Q 125 395, 150 395
+           Q 175 395, 208 380
+           Q 212 320, 215 260
+           Q 218 210, 212 175
+           Q 185 165, 150 165
+           Q 115 165, 88 175
            Z"
         fill={color}
       />
 
       {/* Neckline */}
       <path
-        d="M 120 178
-           Q 135 192, 150 195
-           Q 165 192, 180 178
-           Q 165 188, 150 190
-           Q 135 188, 120 178
+        d="M 118 170
+           Q 135 185, 150 188
+           Q 165 185, 182 170
+           Q 165 182, 150 185
+           Q 135 182, 118 170
            Z"
         fill={darkerColor}
       />
 
-      {/* Left sleeve */}
+      {/* Left sleeve - extended to cover arm from shoulder */}
       <path
-        d="M 90 185
-           Q 72 195, 58 220
-           Q 50 245, 55 270
-           L 72 265
-           Q 68 245, 75 225
-           Q 82 205, 95 195
+        d="M 88 175
+           Q 68 188, 52 215
+           Q 42 245, 48 280
+           L 68 275
+           Q 62 248, 70 222
+           Q 80 198, 95 185
            Z"
         fill={color}
       />
 
-      {/* Right sleeve */}
+      {/* Right sleeve - extended to cover arm from shoulder */}
       <path
-        d="M 210 185
-           Q 228 195, 242 220
-           Q 250 245, 245 270
-           L 228 265
-           Q 232 245, 225 225
-           Q 218 205, 205 195
+        d="M 212 175
+           Q 232 188, 248 215
+           Q 258 245, 252 280
+           L 232 275
+           Q 238 248, 230 222
+           Q 220 198, 205 185
            Z"
         fill={color}
       />
 
       {/* Sleeve shadows */}
       <path
-        d="M 55 270 Q 62 262, 72 265"
+        d="M 48 280 Q 56 270, 68 275"
         fill="none"
         stroke={darkerColor}
         strokeWidth="3"
       />
       <path
-        d="M 245 270 Q 238 262, 228 265"
+        d="M 252 280 Q 244 270, 232 275"
         fill="none"
         stroke={darkerColor}
         strokeWidth="3"
       />
 
       {/* Side seams */}
-      <line x1="95" y1="220" x2="100" y2="355" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
-      <line x1="205" y1="220" x2="200" y2="355" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
+      <line x1="92" y1="210" x2="95" y2="380" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
+      <line x1="208" y1="210" x2="205" y2="380" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
     </g>
   )
 }
@@ -103,61 +103,61 @@ export function TankTop({ color = '#98D8C8', className = '' }: TopProps) {
 
   return (
     <g className={className} data-item="tank-top">
-      {/* Main body */}
+      {/* Main body - extended to overlap with bottoms at y=380 */}
       <path
-        d="M 105 185
-           Q 100 210, 100 250
-           Q 100 300, 105 355
-           Q 130 365, 150 365
-           Q 170 365, 195 355
-           Q 200 300, 200 250
-           Q 200 210, 195 185
-           Q 175 180, 150 180
-           Q 125 180, 105 185
+        d="M 100 175
+           Q 95 210, 95 260
+           Q 95 320, 100 380
+           Q 130 395, 150 395
+           Q 170 395, 200 380
+           Q 205 320, 205 260
+           Q 205 210, 200 175
+           Q 175 168, 150 168
+           Q 125 168, 100 175
            Z"
         fill={color}
       />
 
       {/* V-neckline */}
       <path
-        d="M 120 183
-           Q 135 210, 150 220
-           Q 165 210, 180 183
-           L 172 180
-           Q 160 205, 150 212
-           Q 140 205, 128 180
+        d="M 118 175
+           Q 135 205, 150 215
+           Q 165 205, 182 175
+           L 172 170
+           Q 160 198, 150 205
+           Q 140 198, 128 170
            Z"
         fill={darkerColor}
       />
 
-      {/* Straps */}
+      {/* Straps - extended higher to y=145 */}
       <path
-        d="M 120 183
-           Q 118 170, 122 155
-           L 132 155
-           Q 130 170, 128 183
+        d="M 118 175
+           Q 115 160, 118 145
+           L 130 145
+           Q 128 160, 126 175
            Z"
         fill={color}
       />
       <path
-        d="M 180 183
-           Q 182 170, 178 155
-           L 168 155
-           Q 170 170, 172 183
+        d="M 182 175
+           Q 185 160, 182 145
+           L 170 145
+           Q 172 160, 174 175
            Z"
         fill={color}
       />
 
       {/* Armhole curves */}
       <path
-        d="M 105 190 Q 95 215, 98 250"
+        d="M 100 180 Q 90 210, 93 260"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
         opacity="0.5"
       />
       <path
-        d="M 195 190 Q 205 215, 202 250"
+        d="M 200 180 Q 210 210, 207 260"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
@@ -176,25 +176,25 @@ export function LongSleeveShirt({ color = '#9B59B6', className = '' }: TopProps)
 
   return (
     <g className={className} data-item="long-sleeve-shirt">
-      {/* Main body - tailored with waist definition */}
+      {/* Main body - extended from y=170 to y=385 for full coverage and overlap with bottoms */}
       <path
-        d="M 92 185
-           Q 86 210, 85 250
-           Q 85 300, 92 340
-           Q 100 360, 115 365
-           L 185 365
-           Q 200 360, 208 340
-           Q 215 300, 215 250
-           Q 214 210, 208 185
-           Q 180 175, 150 175
-           Q 120 175, 92 185
+        d="M 88 175
+           Q 82 210, 82 260
+           Q 82 320, 88 370
+           Q 98 390, 115 395
+           L 185 395
+           Q 202 390, 212 370
+           Q 218 320, 218 260
+           Q 218 210, 212 175
+           Q 180 165, 150 165
+           Q 120 165, 88 175
            Z"
         fill={color}
       />
 
       {/* Waist darts - left */}
       <path
-        d="M 100 220 Q 95 280, 100 340"
+        d="M 95 220 Q 90 290, 95 370"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
@@ -202,7 +202,7 @@ export function LongSleeveShirt({ color = '#9B59B6', className = '' }: TopProps)
       />
       {/* Waist darts - right */}
       <path
-        d="M 200 220 Q 205 280, 200 340"
+        d="M 205 220 Q 210 290, 205 370"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
@@ -210,36 +210,36 @@ export function LongSleeveShirt({ color = '#9B59B6', className = '' }: TopProps)
       />
 
       {/* Center front seam */}
-      <line x1="150" y1="195" x2="150" y2="360" stroke={darkerColor} strokeWidth="1" opacity="0.2" />
+      <line x1="150" y1="190" x2="150" y2="390" stroke={darkerColor} strokeWidth="1" opacity="0.2" />
 
       {/* Crew neckline with ribbed collar */}
       <path
-        d="M 122 180
-           Q 130 172, 150 170
-           Q 170 172, 178 180
-           Q 168 186, 150 188
-           Q 132 186, 122 180
+        d="M 118 172
+           Q 128 164, 150 162
+           Q 172 164, 182 172
+           Q 170 180, 150 182
+           Q 130 180, 118 172
            Z"
         fill={darkerColor}
       />
 
-      {/* Left sleeve - follows arm contour */}
+      {/* Left sleeve - follows arm contour, covers full arm to wrist */}
       <path
-        d="M 92 185
-           Q 75 200, 65 240
-           Q 58 290, 55 340
-           Q 54 370, 52 390
-           L 70 395
-           Q 72 375, 74 345
-           Q 78 295, 85 245
-           Q 90 210, 98 195
+        d="M 88 175
+           Q 68 195, 56 245
+           Q 48 300, 48 360
+           Q 48 385, 45 405
+           L 68 410
+           Q 70 390, 70 365
+           Q 72 305, 80 250
+           Q 88 205, 98 185
            Z"
         fill={color}
       />
 
       {/* Left sleeve inner shadow */}
       <path
-        d="M 68 230 Q 62 300, 58 370"
+        d="M 62 235 Q 55 310, 52 385"
         fill="none"
         stroke={darkerColor}
         strokeWidth="6"
@@ -247,23 +247,23 @@ export function LongSleeveShirt({ color = '#9B59B6', className = '' }: TopProps)
         strokeLinecap="round"
       />
 
-      {/* Right sleeve - follows arm contour */}
+      {/* Right sleeve - follows arm contour, covers full arm to wrist */}
       <path
-        d="M 208 185
-           Q 225 200, 235 240
-           Q 242 290, 245 340
-           Q 246 370, 248 390
-           L 230 395
-           Q 228 375, 226 345
-           Q 222 295, 215 245
-           Q 210 210, 202 195
+        d="M 212 175
+           Q 232 195, 244 245
+           Q 252 300, 252 360
+           Q 252 385, 255 405
+           L 232 410
+           Q 230 390, 230 365
+           Q 228 305, 220 250
+           Q 212 205, 202 185
            Z"
         fill={color}
       />
 
       {/* Right sleeve inner shadow */}
       <path
-        d="M 232 230 Q 238 300, 242 370"
+        d="M 238 235 Q 245 310, 248 385"
         fill="none"
         stroke={darkerColor}
         strokeWidth="6"
@@ -273,44 +273,46 @@ export function LongSleeveShirt({ color = '#9B59B6', className = '' }: TopProps)
 
       {/* Left cuff */}
       <path
-        d="M 50 388
-           Q 48 395, 50 402
-           L 72 402
-           Q 74 395, 72 388
+        d="M 42 402
+           Q 40 410, 42 418
+           L 70 418
+           Q 72 410, 70 402
            Z"
         fill={darkerColor}
       />
       {/* Left cuff ribbing */}
-      <line x1="54" y1="390" x2="54" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
-      <line x1="58" y1="390" x2="58" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
-      <line x1="62" y1="390" x2="62" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
-      <line x1="66" y1="390" x2="66" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="48" y1="405" x2="48" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="52" y1="405" x2="52" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="56" y1="405" x2="56" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="60" y1="405" x2="60" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="64" y1="405" x2="64" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
 
       {/* Right cuff */}
       <path
-        d="M 228 388
-           Q 226 395, 228 402
-           L 250 402
-           Q 252 395, 250 388
+        d="M 230 402
+           Q 228 410, 230 418
+           L 258 418
+           Q 260 410, 258 402
            Z"
         fill={darkerColor}
       />
       {/* Right cuff ribbing */}
-      <line x1="232" y1="390" x2="232" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
-      <line x1="236" y1="390" x2="236" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
-      <line x1="240" y1="390" x2="240" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
-      <line x1="244" y1="390" x2="244" y2="400" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="236" y1="405" x2="236" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="240" y1="405" x2="240" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="244" y1="405" x2="244" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="248" y1="405" x2="248" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
+      <line x1="252" y1="405" x2="252" y2="415" stroke={lighterColor} strokeWidth="0.5" opacity="0.3" />
 
       {/* Shoulder seams */}
       <path
-        d="M 122 180 Q 108 190, 95 200"
+        d="M 118 172 Q 102 185, 90 198"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
         opacity="0.3"
       />
       <path
-        d="M 178 180 Q 192 190, 205 200"
+        d="M 182 172 Q 198 185, 210 198"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
@@ -319,12 +321,12 @@ export function LongSleeveShirt({ color = '#9B59B6', className = '' }: TopProps)
 
       {/* Hem band */}
       <path
-        d="M 100 355
-           Q 125 368, 150 370
-           Q 175 368, 200 355
-           L 200 365
-           Q 175 378, 150 380
-           Q 125 378, 100 365
+        d="M 100 385
+           Q 125 398, 150 400
+           Q 175 398, 200 385
+           L 200 395
+           Q 175 408, 150 410
+           Q 125 408, 100 395
            Z"
         fill={darkerColor}
         opacity="0.6"
@@ -341,62 +343,62 @@ export function CropTop({ color = '#F39C12', className = '' }: TopProps) {
 
   return (
     <g className={className} data-item="crop-top">
-      {/* Main cropped body */}
+      {/* Main cropped body - covers from shoulders y=170 to y=330 (above high-waisted bottoms) */}
       <path
-        d="M 95 185
-           Q 88 210, 90 250
-           Q 92 280, 98 300
-           Q 125 315, 150 315
-           Q 175 315, 202 300
-           Q 208 280, 210 250
-           Q 212 210, 205 185
-           Q 180 175, 150 175
-           Q 120 175, 95 185
+        d="M 92 175
+           Q 85 200, 86 245
+           Q 88 285, 95 320
+           Q 125 340, 150 340
+           Q 175 340, 205 320
+           Q 212 285, 214 245
+           Q 215 200, 208 175
+           Q 180 165, 150 165
+           Q 120 165, 92 175
            Z"
         fill={color}
       />
 
       {/* Scoop neckline */}
       <path
-        d="M 115 183
-           Q 135 200, 150 205
-           Q 165 200, 185 183
-           Q 170 195, 150 200
-           Q 130 195, 115 183
+        d="M 112 175
+           Q 132 195, 150 200
+           Q 168 195, 188 175
+           Q 172 190, 150 195
+           Q 128 190, 112 175
            Z"
         fill={darkerColor}
       />
 
-      {/* Cap sleeves */}
+      {/* Cap sleeves - extended to cover arm attachment */}
       <path
-        d="M 95 185
-           Q 78 195, 68 215
-           Q 65 228, 70 240
-           L 85 235
-           Q 82 225, 85 212
-           Q 90 200, 100 192
+        d="M 92 175
+           Q 72 188, 60 212
+           Q 55 230, 62 250
+           L 82 245
+           Q 78 228, 82 212
+           Q 88 195, 100 182
            Z"
         fill={color}
       />
       <path
-        d="M 205 185
-           Q 222 195, 232 215
-           Q 235 228, 230 240
-           L 215 235
-           Q 218 225, 215 212
-           Q 210 200, 200 192
+        d="M 208 175
+           Q 228 188, 240 212
+           Q 245 230, 238 250
+           L 218 245
+           Q 222 228, 218 212
+           Q 212 195, 200 182
            Z"
         fill={color}
       />
 
       {/* Hem band */}
       <path
-        d="M 98 300
-           Q 125 315, 150 318
-           Q 175 315, 202 300
-           L 202 310
-           Q 175 325, 150 328
-           Q 125 325, 98 310
+        d="M 95 320
+           Q 125 340, 150 345
+           Q 175 340, 205 320
+           L 205 332
+           Q 175 352, 150 357
+           Q 125 352, 95 332
            Z"
         fill={darkerColor}
       />
@@ -415,105 +417,105 @@ export function Hoodie({ color = '#3498DB', className = '' }: TopProps) {
     <g className={className} data-item="hoodie">
       {/* Hood (behind head area) */}
       <path
-        d="M 95 120
-           Q 80 130, 75 155
-           Q 73 175, 82 190
-           L 218 190
-           Q 227 175, 225 155
-           Q 220 130, 205 120
-           Q 180 112, 150 112
-           Q 120 112, 95 120
+        d="M 92 115
+           Q 75 128, 70 155
+           Q 68 178, 78 195
+           L 222 195
+           Q 232 178, 230 155
+           Q 225 128, 208 115
+           Q 180 105, 150 105
+           Q 120 105, 92 115
            Z"
         fill={darkerColor}
       />
 
-      {/* Main body */}
+      {/* Main body - extended from y=175 to y=400 for full torso and overlap with bottoms */}
       <path
-        d="M 82 185
-           Q 78 220, 82 270
-           Q 85 320, 90 365
-           Q 125 380, 150 380
-           Q 175 380, 210 365
-           Q 215 320, 218 270
-           Q 222 220, 218 185
-           Q 185 175, 150 175
-           Q 115 175, 82 185
+        d="M 78 175
+           Q 72 220, 76 280
+           Q 80 340, 88 395
+           Q 125 415, 150 415
+           Q 175 415, 212 395
+           Q 220 340, 224 280
+           Q 228 220, 222 175
+           Q 185 162, 150 162
+           Q 115 162, 78 175
            Z"
         fill={color}
       />
 
       {/* Hood opening detail */}
       <path
-        d="M 110 180
-           Q 125 165, 150 162
-           Q 175 165, 190 180
-           Q 175 172, 150 170
-           Q 125 172, 110 180
+        d="M 105 172
+           Q 122 155, 150 152
+           Q 178 155, 195 172
+           Q 178 162, 150 160
+           Q 122 162, 105 172
            Z"
         fill={darkerColor}
       />
 
-      {/* Left sleeve */}
+      {/* Left sleeve - extended to cover full arm to wrist */}
       <path
-        d="M 82 185
-           Q 62 205, 50 250
-           Q 45 310, 48 360
-           Q 50 380, 48 395
-           L 70 400
-           Q 72 385, 70 365
-           Q 68 315, 72 255
-           Q 78 210, 90 195
+        d="M 78 175
+           Q 55 200, 42 255
+           Q 35 320, 40 380
+           Q 42 405, 40 420
+           L 68 425
+           Q 70 408, 68 385
+           Q 65 325, 72 265
+           Q 80 205, 92 185
            Z"
         fill={color}
       />
 
-      {/* Right sleeve */}
+      {/* Right sleeve - extended to cover full arm to wrist */}
       <path
-        d="M 218 185
-           Q 238 205, 250 250
-           Q 255 310, 252 360
-           Q 250 380, 252 395
-           L 230 400
-           Q 228 385, 230 365
-           Q 232 315, 228 255
-           Q 222 210, 210 195
+        d="M 222 175
+           Q 245 200, 258 255
+           Q 265 320, 260 380
+           Q 258 405, 260 420
+           L 232 425
+           Q 230 408, 232 385
+           Q 235 325, 228 265
+           Q 220 205, 208 185
            Z"
         fill={color}
       />
 
       {/* Cuffs */}
-      <rect x="45" y="392" width="28" height="14" rx="4" fill={darkerColor} />
-      <rect x="227" y="392" width="28" height="14" rx="4" fill={darkerColor} />
+      <rect x="36" y="418" width="36" height="16" rx="5" fill={darkerColor} />
+      <rect x="228" y="418" width="36" height="16" rx="5" fill={darkerColor} />
 
       {/* Kangaroo pocket */}
       <path
-        d="M 115 290
-           Q 110 310, 115 340
-           L 185 340
-           Q 190 310, 185 290
-           Q 170 285, 150 285
-           Q 130 285, 115 290
+        d="M 112 300
+           Q 105 325, 112 365
+           L 188 365
+           Q 195 325, 188 300
+           Q 170 292, 150 292
+           Q 130 292, 112 300
            Z"
         fill={darkerColor}
       />
 
       {/* Pocket opening */}
-      <line x1="150" y1="290" x2="150" y2="335" stroke={lighterColor} strokeWidth="2" opacity="0.5" />
+      <line x1="150" y1="302" x2="150" y2="360" stroke={lighterColor} strokeWidth="2" opacity="0.5" />
 
       {/* Hood strings */}
-      <line x1="135" y1="180" x2="135" y2="260" stroke={lighterColor} strokeWidth="3" />
-      <line x1="165" y1="180" x2="165" y2="260" stroke={lighterColor} strokeWidth="3" />
-      <circle cx="135" cy="260" r="5" fill={lighterColor} />
-      <circle cx="165" cy="260" r="5" fill={lighterColor} />
+      <line x1="135" y1="172" x2="135" y2="270" stroke={lighterColor} strokeWidth="3" />
+      <line x1="165" y1="172" x2="165" y2="270" stroke={lighterColor} strokeWidth="3" />
+      <circle cx="135" cy="270" r="5" fill={lighterColor} />
+      <circle cx="165" cy="270" r="5" fill={lighterColor} />
 
       {/* Hem band */}
       <path
-        d="M 90 365
-           Q 125 380, 150 382
-           Q 175 380, 210 365
-           L 210 375
-           Q 175 390, 150 392
-           Q 125 390, 90 375
+        d="M 88 395
+           Q 125 415, 150 418
+           Q 175 415, 212 395
+           L 212 408
+           Q 175 428, 150 432
+           Q 125 428, 88 408
            Z"
         fill={darkerColor}
       />

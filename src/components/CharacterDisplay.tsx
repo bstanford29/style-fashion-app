@@ -47,7 +47,6 @@ export function CharacterDisplay({
     e.preventDefault()
     e.stopPropagation()
     const itemId = e.dataTransfer.getData('text/plain')
-    console.log('🎨 CharacterDisplay handleDrop - itemId:', itemId)
     if (itemId && onDrop) {
       onDrop(itemId)
     }
@@ -55,6 +54,24 @@ export function CharacterDisplay({
 
   const hasAnyItems = useMemo(() => {
     return Object.values(equippedItems).some(Boolean)
+  }, [equippedItems])
+
+  // Count equipped items for accessibility announcement
+  const equippedCount = useMemo(() => {
+    return Object.values(equippedItems).filter(Boolean).length
+  }, [equippedItems])
+
+  // Generate a description of what's currently equipped for screen readers
+  const outfitDescription = useMemo(() => {
+    const items: string[] = []
+    if (equippedItems.hair) items.push('hair style')
+    if (equippedItems.top) items.push('top')
+    if (equippedItems.bottom) items.push('bottom')
+    if (equippedItems.shoes) items.push('shoes')
+    if (equippedItems.accessory) items.push('accessory')
+
+    if (items.length === 0) return 'No items equipped'
+    return `Wearing: ${items.join(', ')}`
   }, [equippedItems])
 
   return (
@@ -74,8 +91,8 @@ export function CharacterDisplay({
       `}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      role="img"
-      aria-label="Character display area - drag clothes here to dress up"
+      role="region"
+      aria-label={`Character display area with ${equippedCount} items equipped - drag clothes here to dress up`}
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -132,37 +149,16 @@ export function CharacterDisplay({
       {/* Bottom shadow for grounding */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-6 bg-gradient-to-t from-slate-900/10 dark:from-black/20 to-transparent rounded-full blur-md" />
 
-      {/* CSS for equip animation */}
-      <style jsx>{`
-        @keyframes equip-bounce {
-          0% {
-            transform: scale(1.2);
-            opacity: 0.7;
-          }
-          50% {
-            transform: scale(0.95);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
+      {/* Screen reader announcement for outfit changes */}
+      <div
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      >
+        {outfitDescription}
+      </div>
 
-        :global(.animate-equip) {
-          animation: equip-bounce 0.3s ease-out;
-        }
-
-        @keyframes glow-pulse {
-          0%,
-          100% {
-            box-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
-          }
-          50% {
-            box-shadow: 0 0 40px rgba(244, 114, 182, 0.6);
-          }
-        }
-      `}</style>
     </div>
   )
 }

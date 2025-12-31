@@ -4,7 +4,8 @@ export { SVGCharacter } from './SVGCharacter'
 
 // Re-export types
 export type { CharacterBaseProps } from './CharacterBase'
-export type { SVGCharacterProps, EquippedItems } from './SVGCharacter'
+export type { SVGCharacterProps } from './SVGCharacter'
+export type { EquippedItems } from '@/lib/types'
 
 // Clothing components
 export * from './clothing/HairStyles'

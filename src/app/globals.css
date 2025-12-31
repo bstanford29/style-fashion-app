@@ -34,12 +34,16 @@ html, body {
 /* Character Display Animations */
 @keyframes equip {
   0% {
-    opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 1;
   }
   100% {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -55,7 +59,7 @@ html, body {
 }
 
 .animate-equip {
-  animation: equip 0.3s ease-out forwards;
+  animation: equip 0.3s ease-out;
 }
 
 .animate-unequip {

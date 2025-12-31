@@ -20,14 +20,16 @@ export function Header({ onSettingsClick }: HeaderProps) {
         </h1>
       </div>
 
-      {/* Settings Button */}
-      <button
-        onClick={onSettingsClick}
-        className="p-2 rounded-xl hover:bg-pink-100 dark:hover:bg-slate-700 transition-colors"
-        aria-label="Settings"
-      >
-        <Settings className="w-6 h-6 text-slate-600 dark:text-slate-300" />
-      </button>
+      {/* Settings Button - only renders if handler is provided */}
+      {onSettingsClick && (
+        <button
+          onClick={onSettingsClick}
+          className="p-2 rounded-xl hover:bg-pink-100 dark:hover:bg-slate-700 transition-colors"
+          aria-label="Settings"
+        >
+          <Settings className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+        </button>
+      )}
     </header>
   )
 }

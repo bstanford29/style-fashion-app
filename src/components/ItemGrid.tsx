@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { useDrag } from '@/context/DragContext'
 import { CLOTHING_ITEMS, CATEGORY_INFO } from '@/data/clothing-items'
-import type { ClothingCategory } from '@/lib/types'
+import type { ClothingCategory, ClothingItem } from '@/lib/types'
 
 // Import thumbnail components
 import {
@@ -115,13 +115,6 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
 // Types
 // -----------------------------------------------------------------------------
 
-interface ClothingItem {
-  id: string
-  name: string
-  category: string
-  thumbnailPath?: string
-}
-
 interface ItemGridProps {
   items: ClothingItem[]
   onDragStart: (itemId: string) => void
@@ -144,6 +137,9 @@ interface ItemCardProps {
 function ItemCard({ item, index, onDragStart, onDragEnd, onItemClick }: ItemCardProps) {
   const [isDragging, setIsDragging] = useState(false)
   const { startDrag, updateCursor, endDrag } = useDrag()
+
+  // Track the last touch position for drop zone detection on touch end
+  const lastTouchPosition = useRef<{ x: number; y: number } | null>(null)
 
   // Get the SVG thumbnail component for this item
   const ThumbnailComponent = THUMBNAIL_COMPONENTS[item.id]
@@ -205,21 +201,53 @@ function ItemCard({ item, index, onDragStart, onDragEnd, onItemClick }: ItemCard
   const handleTouchMove = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
       if (e.touches[0]) {
-        updateCursor(e.touches[0].clientX, e.touches[0].clientY)
+        const x = e.touches[0].clientX
+        const y = e.touches[0].clientY
+        updateCursor(x, y)
+        // Store the last touch position for drop zone detection
+        lastTouchPosition.current = { x, y }
       }
     },
     [updateCursor]
   )
 
   const handleTouchEnd = useCallback(() => {
+    // Check if the touch ended over the character drop zone
+    if (lastTouchPosition.current && onItemClick) {
+      const { x, y } = lastTouchPosition.current
+      const elementAtPoint = document.elementFromPoint(x, y)
+
+      // Check if the element or any of its parents is the character drop zone
+      // The drop zone has aria-label="Character display area - drag clothes here to dress up"
+      let currentElement: Element | null = elementAtPoint
+      let isOverDropZone = false
+
+      while (currentElement) {
+        if (
+          currentElement.getAttribute('aria-label')?.includes('Character display area') ||
+          currentElement.getAttribute('role') === 'img'
+        ) {
+          isOverDropZone = true
+          break
+        }
+        currentElement = currentElement.parentElement
+      }
+
+      if (isOverDropZone) {
+        onItemClick(item.id)
+      }
+    }
+
+    // Clear the last touch position
+    lastTouchPosition.current = null
+
     setIsDragging(false)
     onDragEnd()
     endDrag()
-  }, [onDragEnd, endDrag])
+  }, [item.id, onDragEnd, endDrag, onItemClick])
 
   // Handle click to equip
   const handleClick = useCallback(() => {
-    console.log('👆 Item clicked:', item.id)
     if (onItemClick) {
       onItemClick(item.id)
     }

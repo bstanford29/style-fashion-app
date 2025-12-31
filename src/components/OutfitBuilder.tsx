@@ -19,16 +19,10 @@ export function OutfitBuilder() {
   const [showRunway, setShowRunway] = useState(false)
 
   // Get items from our new typed data for the selected category
-  const filteredItems = getItemsByCategory(state.selectedCategory).map(item => ({
-    id: item.id,
-    name: item.name,
-    category: item.category,
-    thumbnailPath: '', // SVG components are used instead
-  }))
+  const filteredItems = getItemsByCategory(state.selectedCategory)
 
   // Handle drag start
   const handleDragStart = useCallback((itemId: string) => {
-    console.log('🚀 handleDragStart called with:', itemId)
     setDraggedItem(itemId)
   }, [])
 
@@ -41,14 +35,9 @@ export function OutfitBuilder() {
 
   // Handle drop on character
   const handleDrop = useCallback((itemId: string) => {
-    console.log('🎯 handleDrop called with itemId:', itemId)
     const item = CLOTHING_ITEMS.find((i) => i.id === itemId)
-    console.log('📦 Found item:', item)
     if (item) {
-      console.log('✅ Calling equipItem with:', item.category, itemId)
       equipItem(item.category as ClothingCategory, itemId)
-    } else {
-      console.log('❌ Item not found in CLOTHING_ITEMS')
     }
     setDraggedItem(null)
     setIsDragOver(false)
@@ -74,10 +63,77 @@ export function OutfitBuilder() {
     setShowRunway(false)
   }, [saveOutfit])
 
-  // Handle download (placeholder for now)
-  const handleDownload = useCallback(() => {
-    // TODO: Implement canvas capture and download
-    alert('Download feature coming soon!')
+  // Handle download - captures the SVG character and converts to PNG
+  const handleDownload = useCallback(async () => {
+    try {
+      // Find the SVG element within the RunwayModal's character display
+      const svgElement = document.querySelector('[aria-label="Dressed character"]') as SVGSVGElement | null
+      if (!svgElement) {
+        console.error('Could not find character SVG')
+        return
+      }
+
+      // Clone the SVG to avoid modifying the original
+      const clonedSvg = svgElement.cloneNode(true) as SVGSVGElement
+
+      // Set explicit dimensions on the cloned SVG
+      clonedSvg.setAttribute('width', '600')
+      clonedSvg.setAttribute('height', '1600')
+
+      // Serialize SVG to string
+      const serializer = new XMLSerializer()
+      const svgString = serializer.serializeToString(clonedSvg)
+
+      // Create a Blob from the SVG string
+      const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' })
+      const svgUrl = URL.createObjectURL(svgBlob)
+
+      // Create an image from the SVG
+      const img = new Image()
+      img.onload = () => {
+        // Create canvas and draw the image
+        const canvas = document.createElement('canvas')
+        canvas.width = 600
+        canvas.height = 1600
+        const ctx = canvas.getContext('2d')
+
+        if (ctx) {
+          // Fill with a nice gradient background
+          const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height)
+          gradient.addColorStop(0, '#ecfeff') // cyan-50
+          gradient.addColorStop(0.5, '#fce7f3') // pink-100
+          gradient.addColorStop(1, '#ede9fe') // violet-100
+          ctx.fillStyle = gradient
+          ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+          // Draw the character
+          ctx.drawImage(img, 0, 0, 600, 1600)
+
+          // Convert to PNG and download
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const url = URL.createObjectURL(blob)
+              const link = document.createElement('a')
+              link.download = `dressy-outfit-${Date.now()}.png`
+              link.href = url
+              link.click()
+              URL.revokeObjectURL(url)
+            }
+          }, 'image/png')
+        }
+
+        URL.revokeObjectURL(svgUrl)
+      }
+
+      img.onerror = () => {
+        console.error('Failed to load SVG as image')
+        URL.revokeObjectURL(svgUrl)
+      }
+
+      img.src = svgUrl
+    } catch (error) {
+      console.error('Download failed:', error)
+    }
   }, [])
 
   return (
@@ -110,17 +166,11 @@ export function OutfitBuilder() {
           onDragLeave={handleDragLeave}
           onDrop={(e) => {
             e.preventDefault()
-            console.log('🔥 onDrop fired!')
-            console.log('📌 draggedItem state:', draggedItem)
             const dataTransferId = e.dataTransfer.getData('text/plain')
-            console.log('📌 dataTransfer ID:', dataTransferId)
             // Get item ID from either the local state or dataTransfer
             const itemId = draggedItem || dataTransferId
-            console.log('📌 Final itemId:', itemId)
             if (itemId) {
               handleDrop(itemId)
-            } else {
-              console.log('❌ No itemId found!')
             }
           }}
         >

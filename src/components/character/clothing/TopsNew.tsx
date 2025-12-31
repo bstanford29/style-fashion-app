@@ -19,87 +19,88 @@ function adjustColor(hex: string, amount: number): string {
   return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`
 }
 
-export function Sundress({ color = '#FFD700', className = '' }: TopProps) {
+export function Sundress({ color = '#FFB6C1', className = '' }: TopProps) {
   const darkerColor = adjustColor(color, -30)
   const lighterColor = adjustColor(color, 25)
 
   return (
     <g className={className}>
-      {/* Spaghetti straps */}
-      <path d="M 125 170 Q 122 155, 120 140 L 128 138 Q 130 152, 132 168 Z" fill={color} />
-      <path d="M 175 170 Q 178 155, 180 140 L 172 138 Q 170 152, 168 168 Z" fill={color} />
+      {/* Spaghetti straps - extended to cover neck area from y=130 */}
+      <path d="M 122 165 Q 118 148, 115 130 L 128 128 Q 130 145, 132 162 Z" fill={color} />
+      <path d="M 178 165 Q 182 148, 185 130 L 172 128 Q 170 145, 168 162 Z" fill={color} />
 
-      {/* Fitted bodice with sweetheart neckline */}
-      <path d="M 110 170 Q 105 185, 105 210 Q 105 260, 108 300 Q 110 320, 115 320 L 185 320 Q 190 320, 192 300 Q 195 260, 195 210 Q 195 185, 190 170 Q 175 160, 150 158 Q 125 160, 110 170 Z" fill={color} />
+      {/* Fitted bodice with sweetheart neckline - starts at y=160 to cover shoulders */}
+      <path d="M 105 165 Q 98 185, 98 215 Q 98 270, 102 320 Q 105 345, 112 345 L 188 345 Q 195 345, 198 320 Q 202 270, 202 215 Q 202 185, 195 165 Q 178 152, 150 150 Q 122 152, 105 165 Z" fill={color} />
 
       {/* Sweetheart neckline detail */}
-      <path d="M 125 170 Q 130 180, 140 185 Q 150 188, 160 185 Q 170 180, 175 170 Q 168 175, 150 178 Q 132 175, 125 170 Z" fill={darkerColor} opacity="0.5" />
+      <path d="M 122 165 Q 128 178, 140 185 Q 150 188, 160 185 Q 172 178, 178 165 Q 170 175, 150 180 Q 130 175, 122 165 Z" fill={darkerColor} opacity="0.5" />
 
       {/* Bodice center seam */}
-      <line x1="150" y1="185" x2="150" y2="320" stroke={darkerColor} strokeWidth="1" opacity="0.3" />
+      <line x1="150" y1="185" x2="150" y2="345" stroke={darkerColor} strokeWidth="1" opacity="0.3" />
 
       {/* Waist gathering */}
-      <path d="M 115 318 Q 130 325, 150 326 Q 170 325, 185 318" stroke={darkerColor} strokeWidth="2" fill="none" opacity="0.4" />
+      <path d="M 112 340 Q 130 350, 150 352 Q 170 350, 188 340" stroke={darkerColor} strokeWidth="2" fill="none" opacity="0.4" />
 
-      {/* A-line flared skirt */}
-      <path d="M 115 320 Q 100 380, 85 440 Q 75 490, 72 530 Q 72 545, 80 550 L 220 550 Q 228 545, 228 530 Q 225 490, 215 440 Q 200 380, 185 320 Z" fill={color} />
+      {/* A-line flared skirt - extended to y=745 to cover legs completely */}
+      <path d="M 112 345 Q 92 420, 72 520 Q 58 620, 55 700 Q 55 730, 65 745 L 235 745 Q 245 730, 245 700 Q 242 620, 228 520 Q 208 420, 188 345 Z" fill={color} />
 
       {/* Skirt folds */}
-      <path d="M 120 330 Q 110 420, 95 530" fill="none" stroke={darkerColor} strokeWidth="2" opacity="0.25" />
-      <path d="M 150 326 Q 150 420, 150 545" fill="none" stroke={darkerColor} strokeWidth="2" opacity="0.2" />
-      <path d="M 180 330 Q 190 420, 205 530" fill="none" stroke={darkerColor} strokeWidth="2" opacity="0.25" />
+      <path d="M 118 360 Q 100 500, 78 700" fill="none" stroke={darkerColor} strokeWidth="2" opacity="0.25" />
+      <path d="M 150 352 Q 150 520, 150 735" fill="none" stroke={darkerColor} strokeWidth="2" opacity="0.2" />
+      <path d="M 182 360 Q 200 500, 222 700" fill="none" stroke={darkerColor} strokeWidth="2" opacity="0.25" />
 
       {/* Skirt hem */}
-      <path d="M 80 550 Q 150 560, 220 550" stroke={darkerColor} strokeWidth="2" fill="none" opacity="0.4" />
+      <path d="M 65 745 Q 150 760, 235 745" stroke={darkerColor} strokeWidth="3" fill="none" opacity="0.4" />
 
       {/* Highlights */}
-      <ellipse cx="130" cy="250" rx="10" ry="25" fill={lighterColor} opacity="0.2" />
+      <ellipse cx="128" cy="260" rx="12" ry="30" fill={lighterColor} opacity="0.2" />
     </g>
   )
 }
 
-export function Cardigan({ color = '#9B59B6', className = '' }: TopProps) {
+export function Cardigan({ color = '#DEB887', className = '' }: TopProps) {
   const darkerColor = adjustColor(color, -25)
   const lighterColor = adjustColor(color, 20)
 
   return (
     <g className={className}>
-      {/* Tank top underneath */}
-      <path d="M 125 165 Q 120 175, 118 195 Q 115 240, 118 290 Q 120 330, 125 345 L 175 345 Q 180 330, 182 290 Q 185 240, 182 195 Q 180 175, 175 165 Q 165 160, 150 158 Q 135 160, 125 165 Z" fill="#FFFFFF" />
-      <path d="M 130 165 Q 140 175, 150 178 Q 160 175, 170 165" stroke="#E8E8E8" strokeWidth="1.5" fill="none" />
+      {/* Tank top underneath - extended for full coverage y=155 to y=380 */}
+      <path d="M 120 158 Q 112 175, 110 200 Q 105 260, 110 330 Q 115 370, 122 385 L 178 385 Q 185 370, 190 330 Q 195 260, 190 200 Q 188 175, 180 158 Q 168 150, 150 148 Q 132 150, 120 158 Z" fill="#FFFFFF" />
+      <path d="M 128 158 Q 140 172, 150 175 Q 160 172, 172 158" stroke="#E8E8E8" strokeWidth="1.5" fill="none" />
 
-      {/* Cardigan sides */}
-      <path d="M 100 170 Q 90 200, 92 260 Q 95 320, 100 360 L 110 360 Q 108 320, 108 260 Q 108 200, 115 175 Z" fill={color} />
-      <path d="M 200 170 Q 210 200, 208 260 Q 205 320, 200 360 L 190 360 Q 192 320, 192 260 Q 192 200, 185 175 Z" fill={color} />
+      {/* Cardigan sides - extended y=165 to y=395 */}
+      <path d="M 95 168 Q 82 205, 85 280 Q 88 350, 95 395 L 108 395 Q 105 350, 105 280 Q 105 205, 112 172 Z" fill={color} />
+      <path d="M 205 168 Q 218 205, 215 280 Q 212 350, 205 395 L 192 395 Q 195 350, 195 280 Q 195 205, 188 172 Z" fill={color} />
 
-      {/* Left front panel */}
-      <path d="M 100 170 Q 95 175, 95 185 Q 92 220, 95 270 Q 98 320, 102 360 L 130 360 Q 125 320, 122 270 Q 120 220, 122 185 Q 125 175, 130 170 Z" fill={color} />
+      {/* Left front panel - extended coverage */}
+      <path d="M 95 168 Q 88 178, 88 195 Q 84 245, 88 310 Q 92 365, 98 395 L 132 395 Q 126 365, 122 310 Q 118 245, 120 195 Q 122 178, 128 168 Z" fill={color} />
 
-      {/* Right front panel */}
-      <path d="M 200 170 Q 205 175, 205 185 Q 208 220, 205 270 Q 202 320, 198 360 L 170 360 Q 175 320, 178 270 Q 180 220, 178 185 Q 175 175, 170 170 Z" fill={color} />
+      {/* Right front panel - extended coverage */}
+      <path d="M 205 168 Q 212 178, 212 195 Q 216 245, 212 310 Q 208 365, 202 395 L 168 395 Q 174 365, 178 310 Q 182 245, 180 195 Q 178 178, 172 168 Z" fill={color} />
 
       {/* V-neckline edge detail */}
-      <path d="M 130 170 Q 135 175, 135 185" stroke={darkerColor} strokeWidth="3" fill="none" opacity="0.5" />
-      <path d="M 170 170 Q 165 175, 165 185" stroke={darkerColor} strokeWidth="3" fill="none" opacity="0.5" />
+      <path d="M 128 168 Q 135 178, 135 192" stroke={darkerColor} strokeWidth="3" fill="none" opacity="0.5" />
+      <path d="M 172 168 Q 165 178, 165 192" stroke={darkerColor} strokeWidth="3" fill="none" opacity="0.5" />
 
-      {/* Left sleeve */}
-      <path d="M 100 170 Q 80 180, 65 210 Q 52 250, 50 300 Q 48 350, 50 380 L 72 378 Q 70 350, 72 300 Q 76 250, 88 210 Q 98 180, 108 172 Z" fill={color} />
+      {/* Left sleeve - extended to cover full arm to wrist y=420 */}
+      <path d="M 95 168 Q 72 185, 55 225 Q 40 280, 40 345 Q 38 395, 42 420 L 70 418 Q 68 395, 68 345 Q 70 280, 85 225 Q 98 185, 110 170 Z" fill={color} />
 
-      {/* Right sleeve */}
-      <path d="M 200 170 Q 220 180, 235 210 Q 248 250, 250 300 Q 252 350, 250 380 L 228 378 Q 230 350, 228 300 Q 224 250, 212 210 Q 202 180, 192 172 Z" fill={color} />
+      {/* Right sleeve - extended to cover full arm to wrist y=420 */}
+      <path d="M 205 168 Q 228 185, 245 225 Q 260 280, 260 345 Q 262 395, 258 420 L 230 418 Q 232 395, 232 345 Q 230 280, 215 225 Q 202 185, 190 170 Z" fill={color} />
 
       {/* Sleeve cuffs */}
-      <rect x="45" y="375" width="30" height="12" rx="3" fill={darkerColor} />
-      <rect x="225" y="375" width="30" height="12" rx="3" fill={darkerColor} />
+      <rect x="38" y="415" width="35" height="14" rx="4" fill={darkerColor} />
+      <rect x="227" y="415" width="35" height="14" rx="4" fill={darkerColor} />
 
       {/* Ribbed hem */}
-      <path d="M 100 360 Q 105 365, 102 370 L 130 370 Q 127 365, 130 360 Z" fill={darkerColor} opacity="0.6" />
-      <path d="M 170 360 Q 173 365, 170 370 L 198 370 Q 195 365, 200 360 Z" fill={darkerColor} opacity="0.6" />
+      <path d="M 98 395 Q 105 402, 100 410 L 132 410 Q 127 402, 132 395 Z" fill={darkerColor} opacity="0.6" />
+      <path d="M 168 395 Q 173 402, 168 410 L 202 410 Q 197 402, 202 395 Z" fill={darkerColor} opacity="0.6" />
 
       {/* Buttons */}
-      <circle cx="128" cy="200" r="3" fill={lighterColor} opacity="0.6" />
-      <circle cx="128" cy="240" r="3" fill={lighterColor} opacity="0.6" />
-      <circle cx="128" cy="280" r="3" fill={lighterColor} opacity="0.6" />
+      <circle cx="128" cy="210" r="4" fill={lighterColor} opacity="0.6" />
+      <circle cx="128" cy="260" r="4" fill={lighterColor} opacity="0.6" />
+      <circle cx="128" cy="310" r="4" fill={lighterColor} opacity="0.6" />
+      <circle cx="128" cy="360" r="4" fill={lighterColor} opacity="0.6" />
     </g>
   )
 }
@@ -111,66 +112,66 @@ export function DenimJacket({ color = '#4682B4', className = '' }: TopProps) {
 
   return (
     <g className={className}>
-      {/* Main body */}
-      <path d="M 95 170 Q 88 200, 90 250 Q 92 300, 95 340 Q 125 355, 150 355 Q 175 355, 205 340 Q 208 300, 210 250 Q 212 200, 205 170 Q 180 160, 150 158 Q 120 160, 95 170 Z" fill={color} />
+      {/* Main body - extended from y=162 to y=395 for full coverage and overlap with bottoms */}
+      <path d="M 90 165 Q 82 205, 85 265 Q 88 330, 92 380 Q 125 400, 150 400 Q 175 400, 208 380 Q 212 330, 215 265 Q 218 205, 210 165 Q 180 152, 150 150 Q 120 152, 90 165 Z" fill={color} />
 
       {/* Left collar */}
-      <path d="M 120 165 Q 110 155, 100 152 Q 92 155, 88 165 Q 95 175, 108 178 Q 118 175, 125 170 Z" fill={color} />
-      <path d="M 100 155 Q 105 162, 115 168" stroke={darkerColor} strokeWidth="2" fill="none" />
+      <path d="M 118 162 Q 105 150, 95 145 Q 85 148, 80 162 Q 88 175, 105 180 Q 116 176, 125 168 Z" fill={color} />
+      <path d="M 95 150 Q 102 160, 115 168" stroke={darkerColor} strokeWidth="2" fill="none" />
 
       {/* Right collar */}
-      <path d="M 180 165 Q 190 155, 200 152 Q 208 155, 212 165 Q 205 175, 192 178 Q 182 175, 175 170 Z" fill={color} />
-      <path d="M 200 155 Q 195 162, 185 168" stroke={darkerColor} strokeWidth="2" fill="none" />
+      <path d="M 182 162 Q 195 150, 205 145 Q 215 148, 220 162 Q 212 175, 195 180 Q 184 176, 175 168 Z" fill={color} />
+      <path d="M 205 150 Q 198 160, 185 168" stroke={darkerColor} strokeWidth="2" fill="none" />
 
       {/* Button placket */}
-      <rect x="145" y="175" width="10" height="160" fill={darkerColor} opacity="0.3" />
+      <rect x="145" y="175" width="10" height="200" fill={darkerColor} opacity="0.3" />
 
       {/* Buttons */}
-      <circle cx="150" cy="195" r="5" fill={darkerColor} />
-      <circle cx="150" cy="230" r="5" fill={darkerColor} />
-      <circle cx="150" cy="265" r="5" fill={darkerColor} />
-      <circle cx="150" cy="300" r="5" fill={darkerColor} />
+      <circle cx="150" cy="200" r="5" fill={darkerColor} />
+      <circle cx="150" cy="245" r="5" fill={darkerColor} />
+      <circle cx="150" cy="290" r="5" fill={darkerColor} />
+      <circle cx="150" cy="335" r="5" fill={darkerColor} />
 
       {/* Left chest pocket */}
-      <path d="M 105 200 Q 103 205, 105 235 L 135 235 Q 137 205, 135 200 Z" fill={darkerColor} opacity="0.25" />
-      <path d="M 103 195 Q 102 200, 105 205 L 137 205 Q 140 200, 138 195 Q 125 192, 103 195 Z" fill={color} />
-      <circle cx="120" cy="200" r="3" fill={darkerColor} />
+      <path d="M 102 210 Q 100 218, 102 255 L 138 255 Q 140 218, 138 210 Z" fill={darkerColor} opacity="0.25" />
+      <path d="M 100 202 Q 98 210, 102 218 L 140 218 Q 144 210, 142 202 Q 125 198, 100 202 Z" fill={color} />
+      <circle cx="120" cy="210" r="3" fill={darkerColor} />
 
       {/* Right chest pocket */}
-      <path d="M 165 200 Q 163 205, 165 235 L 195 235 Q 197 205, 195 200 Z" fill={darkerColor} opacity="0.25" />
-      <path d="M 163 195 Q 162 200, 165 205 L 197 205 Q 200 200, 198 195 Q 185 192, 163 195 Z" fill={color} />
-      <circle cx="180" cy="200" r="3" fill={darkerColor} />
+      <path d="M 162 210 Q 160 218, 162 255 L 198 255 Q 200 218, 198 210 Z" fill={darkerColor} opacity="0.25" />
+      <path d="M 160 202 Q 158 210, 162 218 L 200 218 Q 204 210, 202 202 Q 185 198, 160 202 Z" fill={color} />
+      <circle cx="180" cy="210" r="3" fill={darkerColor} />
 
-      {/* Left sleeve */}
-      <path d="M 95 170 Q 75 180, 62 210 Q 52 250, 52 300 Q 52 330, 55 350 L 78 350 Q 76 330, 76 300 Q 78 250, 88 210 Q 96 185, 105 175 Z" fill={color} />
+      {/* Left sleeve - extended to cover full arm to wrist y=400 */}
+      <path d="M 90 165 Q 68 182, 52 225 Q 40 280, 42 350 Q 44 385, 48 405 L 75 402 Q 72 385, 72 350 Q 74 280, 86 225 Q 98 182, 110 170 Z" fill={color} />
 
-      {/* Right sleeve */}
-      <path d="M 205 170 Q 225 180, 238 210 Q 248 250, 248 300 Q 248 330, 245 350 L 222 350 Q 224 330, 224 300 Q 222 250, 212 210 Q 204 185, 195 175 Z" fill={color} />
+      {/* Right sleeve - extended to cover full arm to wrist y=400 */}
+      <path d="M 210 165 Q 232 182, 248 225 Q 260 280, 258 350 Q 256 385, 252 405 L 225 402 Q 228 385, 228 350 Q 226 280, 214 225 Q 202 182, 190 170 Z" fill={color} />
 
       {/* Sleeve cuffs */}
-      <rect x="52" y="345" width="28" height="12" rx="2" fill={darkerColor} opacity="0.4" />
-      <rect x="220" y="345" width="28" height="12" rx="2" fill={darkerColor} opacity="0.4" />
-      <circle cx="73" cy="351" r="3" fill={darkerColor} />
-      <circle cx="227" cy="351" r="3" fill={darkerColor} />
+      <rect x="45" y="398" width="32" height="14" rx="3" fill={darkerColor} opacity="0.5" />
+      <rect x="223" y="398" width="32" height="14" rx="3" fill={darkerColor} opacity="0.5" />
+      <circle cx="70" cy="405" r="3" fill={darkerColor} />
+      <circle cx="230" cy="405" r="3" fill={darkerColor} />
 
       {/* Decorative stitching */}
-      <path d="M 100 158 Q 108 165, 118 168" stroke={stitchColor} strokeWidth="1" strokeDasharray="3,2" fill="none" opacity="0.6" />
-      <path d="M 200 158 Q 192 165, 182 168" stroke={stitchColor} strokeWidth="1" strokeDasharray="3,2" fill="none" opacity="0.6" />
-      <path d="M 95 200 L 95 335" stroke={stitchColor} strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
-      <path d="M 205 200 L 205 335" stroke={stitchColor} strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+      <path d="M 95 152 Q 105 162, 118 168" stroke={stitchColor} strokeWidth="1" strokeDasharray="3,2" fill="none" opacity="0.6" />
+      <path d="M 205 152 Q 195 162, 182 168" stroke={stitchColor} strokeWidth="1" strokeDasharray="3,2" fill="none" opacity="0.6" />
+      <path d="M 92 210 L 92 375" stroke={stitchColor} strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
+      <path d="M 208 210 L 208 375" stroke={stitchColor} strokeWidth="1" strokeDasharray="4,3" opacity="0.5" />
 
       {/* Hem band */}
-      <path d="M 95 340 Q 125 355, 150 357 Q 175 355, 205 340 L 205 350 Q 175 365, 150 367 Q 125 365, 95 350 Z" fill={darkerColor} opacity="0.4" />
+      <path d="M 92 380 Q 125 400, 150 405 Q 175 400, 208 380 L 208 395 Q 175 415, 150 420 Q 125 415, 92 395 Z" fill={darkerColor} opacity="0.4" />
 
       {/* Highlights */}
-      <ellipse cx="115" cy="280" rx="8" ry="20" fill={lighterColor} opacity="0.15" />
-      <ellipse cx="185" cy="280" rx="8" ry="20" fill={lighterColor} opacity="0.15" />
+      <ellipse cx="112" cy="300" rx="10" ry="25" fill={lighterColor} opacity="0.15" />
+      <ellipse cx="188" cy="300" rx="10" ry="25" fill={lighterColor} opacity="0.15" />
     </g>
   )
 }
 
 // Thumbnails
-export function SundressThumbnail({ color = '#FFD700' }: { color?: string }) {
+export function SundressThumbnail({ color = '#FFB6C1' }: { color?: string }) {
   const darkerColor = adjustColor(color, -30)
   return (
     <svg viewBox="0 0 50 50" className="w-full h-full">
@@ -185,7 +186,7 @@ export function SundressThumbnail({ color = '#FFD700' }: { color?: string }) {
   )
 }
 
-export function CardiganThumbnail({ color = '#9B59B6' }: { color?: string }) {
+export function CardiganThumbnail({ color = '#DEB887' }: { color?: string }) {
   const darkerColor = adjustColor(color, -25)
   return (
     <svg viewBox="0 0 50 50" className="w-full h-full">

@@ -4,18 +4,9 @@
  * (25 original + 15 new)
  */
 
-import type { ClothingCategory } from '@/lib/types'
+import type { ClothingCategory, ClothingItem } from '@/lib/types'
 
-export interface ClothingItemData {
-  id: string
-  name: string
-  category: ClothingCategory
-  componentName: string
-  defaultColor: string
-  zIndex: number
-}
-
-export const CLOTHING_ITEMS: ClothingItemData[] = [
+export const CLOTHING_ITEMS: ClothingItem[] = [
   // ==========================================================================
   // HAIR (5 items) - zIndex: 60 (on top of head)
   // ==========================================================================
@@ -365,21 +356,21 @@ export const CLOTHING_ITEMS: ClothingItemData[] = [
 /**
  * Get all items in a specific category
  */
-export function getItemsByCategory(category: ClothingCategory): ClothingItemData[] {
+export function getItemsByCategory(category: ClothingCategory): ClothingItem[] {
   return CLOTHING_ITEMS.filter((item) => item.category === category)
 }
 
 /**
  * Get a single item by its ID
  */
-export function getItemById(id: string): ClothingItemData | undefined {
+export function getItemById(id: string): ClothingItem | undefined {
   return CLOTHING_ITEMS.find((item) => item.id === id)
 }
 
 /**
  * Get all categories with their items
  */
-export function getAllCategories(): Record<ClothingCategory, ClothingItemData[]> {
+export function getAllCategories(): Record<ClothingCategory, ClothingItem[]> {
   return {
     hair: getItemsByCategory('hair'),
     top: getItemsByCategory('top'),

@@ -2,6 +2,7 @@
 
 import { useOutfit } from '@/context/OutfitContext'
 import { Image as ImageIcon, Trash2 } from 'lucide-react'
+import { SVGCharacter } from './character/SVGCharacter'
 
 interface GalleryProps {
   onLoadOutfit: () => void
@@ -53,16 +54,17 @@ export function Gallery({ onLoadOutfit }: GalleryProps) {
             key={outfit.id}
             className="group relative bg-white dark:bg-slate-800 rounded-2xl p-3 shadow-md hover:shadow-lg transition-shadow"
           >
-            {/* Outfit Preview (simplified - shows equipped count) */}
+            {/* Outfit Preview - Mini character with equipped items */}
             <div
-              className="aspect-[2/3] bg-gradient-to-b from-pink-50 to-violet-50 dark:from-slate-700 dark:to-slate-600 rounded-xl flex items-center justify-center mb-2 cursor-pointer hover:ring-2 hover:ring-pink-300 transition-all"
+              className="aspect-[2/3] bg-gradient-to-b from-pink-50 to-violet-50 dark:from-slate-700 dark:to-slate-600 rounded-xl flex items-center justify-center mb-2 cursor-pointer hover:ring-2 hover:ring-pink-300 transition-all overflow-hidden"
               onClick={() => handleLoadOutfit(outfit.id)}
             >
-              <div className="text-center">
-                <div className="text-3xl mb-1">👗</div>
-                <span className="text-xs text-slate-500 dark:text-slate-400">
-                  {Object.values(outfit.equipped).filter(Boolean).length} items
-                </span>
+              <div className="w-full h-full pointer-events-none">
+                <SVGCharacter
+                  skinTone={outfit.skinTone}
+                  equippedItems={outfit.equipped}
+                  animate={false}
+                />
               </div>
             </div>
 

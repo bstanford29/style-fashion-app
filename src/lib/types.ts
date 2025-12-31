@@ -10,8 +10,8 @@ export interface ClothingItem {
   id: string
   name: string
   category: ClothingCategory
-  imagePath: string
-  thumbnailPath: string
+  componentName: string
+  defaultColor: string
   zIndex: number
 }
 
