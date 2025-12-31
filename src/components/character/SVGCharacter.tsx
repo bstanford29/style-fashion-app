@@ -9,12 +9,22 @@ import {
   BraidsHair,
 } from './clothing/HairStyles'
 import {
+  SpaceBuns,
+  PixieCut,
+  SideBraid,
+} from './clothing/HairStylesNew'
+import {
   BasicTShirt,
   TankTop,
   LongSleeveShirt,
   CropTop,
   Hoodie,
 } from './clothing/Tops'
+import {
+  Sundress,
+  Cardigan,
+  DenimJacket,
+} from './clothing/TopsNew'
 import {
   Jeans,
   Skirt,
@@ -23,6 +33,11 @@ import {
   PleatedSkirt,
 } from './clothing/Bottoms'
 import {
+  Overalls,
+  Tutu,
+  Joggers,
+} from './clothing/BottomsNew'
+import {
   Sneakers,
   BalletFlats,
   Boots,
@@ -30,12 +45,22 @@ import {
   HighHeels,
 } from './clothing/Shoes'
 import {
+  MaryJanes,
+  RainBoots,
+  Loafers,
+} from './clothing/ShoesNew'
+import {
   BowHeadband,
   Necklace,
   Sunglasses,
   Earrings,
   Hat,
 } from './clothing/Accessories'
+import {
+  Tiara,
+  Backpack,
+  Glasses,
+} from './clothing/AccessoriesNew'
 
 export interface EquippedItems {
   hair: string | null
@@ -63,10 +88,13 @@ const HAIR_COMPONENTS: Record<string, React.ComponentType<{ color?: string; clas
   hair_003: PonytailHair,
   hair_004: CurlyWavyHair,
   hair_005: BraidsHair,
+  hair_006: SpaceBuns,
+  hair_007: PixieCut,
+  hair_008: SideBraid,
 }
 
 /** Hair styles that have parts that should render BEHIND the body (ponytails, braids, long hair) */
-const HAIR_RENDERS_BEHIND_BODY = ['hair_001', 'hair_003', 'hair_005'] // Long straight, ponytail, braids
+const HAIR_RENDERS_BEHIND_BODY = ['hair_001', 'hair_003', 'hair_005', 'hair_008'] // Long straight, ponytail, braids, side braid
 
 const TOP_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
   top_001: BasicTShirt,
@@ -74,6 +102,9 @@ const TOP_COMPONENTS: Record<string, React.ComponentType<{ color?: string; class
   top_003: LongSleeveShirt,
   top_004: CropTop,
   top_005: Hoodie,
+  top_006: Sundress,
+  top_007: Cardigan,
+  top_008: DenimJacket,
 }
 
 const BOTTOM_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
@@ -82,6 +113,9 @@ const BOTTOM_COMPONENTS: Record<string, React.ComponentType<{ color?: string; cl
   bottom_003: Shorts,
   bottom_004: Leggings,
   bottom_005: PleatedSkirt,
+  bottom_006: Overalls,
+  bottom_007: Tutu,
+  bottom_008: Joggers,
 }
 
 const SHOES_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
@@ -90,6 +124,9 @@ const SHOES_COMPONENTS: Record<string, React.ComponentType<{ color?: string; cla
   shoes_003: Boots,
   shoes_004: Sandals,
   shoes_005: HighHeels,
+  shoes_006: MaryJanes,
+  shoes_007: RainBoots,
+  shoes_008: Loafers,
 }
 
 const ACCESSORY_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
@@ -98,6 +135,9 @@ const ACCESSORY_COMPONENTS: Record<string, React.ComponentType<{ color?: string;
   accessory_003: Sunglasses,
   accessory_004: Earrings,
   accessory_005: Hat,
+  accessory_006: Tiara,
+  accessory_007: Backpack,
+  accessory_008: Glasses,
 }
 
 export function SVGCharacter({

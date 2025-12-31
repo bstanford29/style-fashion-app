@@ -85,7 +85,7 @@ export function OutfitBuilder() {
       {/* Left side: Item Grid + Category Selector */}
       <div className="flex gap-2 flex-1 lg:flex-none lg:w-[400px]">
         {/* Item Grid */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto overflow-x-visible pb-4">
           <ItemGrid
             items={filteredItems}
             onDragStart={handleDragStart}

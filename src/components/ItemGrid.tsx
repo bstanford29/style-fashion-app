@@ -14,12 +14,22 @@ import {
   BraidsHairThumbnail,
 } from './character/clothing/HairStyles'
 import {
+  SpaceBunsThumbnail,
+  PixieCutThumbnail,
+  SideBraidThumbnail,
+} from './character/clothing/HairStylesNew'
+import {
   BasicTShirtThumbnail,
   TankTopThumbnail,
   LongSleeveShirtThumbnail,
   CropTopThumbnail,
   HoodieThumbnail,
 } from './character/clothing/Tops'
+import {
+  SundressThumbnail,
+  CardiganThumbnail,
+  DenimJacketThumbnail,
+} from './character/clothing/TopsNew'
 import {
   JeansThumbnail,
   SkirtThumbnail,
@@ -28,6 +38,11 @@ import {
   PleatedSkirtThumbnail,
 } from './character/clothing/Bottoms'
 import {
+  OverallsThumbnail,
+  TutuThumbnail,
+  JoggersThumbnail,
+} from './character/clothing/BottomsNew'
+import {
   SneakersThumbnail,
   BalletFlatsThumbnail,
   BootsThumbnail,
@@ -35,12 +50,22 @@ import {
   HighHeelsThumbnail,
 } from './character/clothing/Shoes'
 import {
+  MaryJanesThumbnail,
+  RainBootsThumbnail,
+  LoafersThumbnail,
+} from './character/clothing/ShoesNew'
+import {
   BowHeadbandThumbnail,
   NecklaceThumbnail,
   SunglassesThumbnail,
   EarringsThumbnail,
   HatThumbnail,
 } from './character/clothing/Accessories'
+import {
+  TiaraThumbnail,
+  BackpackThumbnail,
+  GlassesThumbnail,
+} from './character/clothing/AccessoriesNew'
 
 // Map item IDs to their thumbnail components
 const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string }>> = {
@@ -49,26 +74,41 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
   hair_003: PonytailHairThumbnail,
   hair_004: CurlyWavyHairThumbnail,
   hair_005: BraidsHairThumbnail,
+  hair_006: SpaceBunsThumbnail,
+  hair_007: PixieCutThumbnail,
+  hair_008: SideBraidThumbnail,
   top_001: BasicTShirtThumbnail,
   top_002: TankTopThumbnail,
   top_003: LongSleeveShirtThumbnail,
   top_004: CropTopThumbnail,
   top_005: HoodieThumbnail,
+  top_006: SundressThumbnail,
+  top_007: CardiganThumbnail,
+  top_008: DenimJacketThumbnail,
   bottom_001: JeansThumbnail,
   bottom_002: SkirtThumbnail,
   bottom_003: ShortsThumbnail,
   bottom_004: LeggingsThumbnail,
   bottom_005: PleatedSkirtThumbnail,
+  bottom_006: OverallsThumbnail,
+  bottom_007: TutuThumbnail,
+  bottom_008: JoggersThumbnail,
   shoes_001: SneakersThumbnail,
   shoes_002: BalletFlatsThumbnail,
   shoes_003: BootsThumbnail,
   shoes_004: SandalsThumbnail,
   shoes_005: HighHeelsThumbnail,
+  shoes_006: MaryJanesThumbnail,
+  shoes_007: RainBootsThumbnail,
+  shoes_008: LoafersThumbnail,
   accessory_001: BowHeadbandThumbnail,
   accessory_002: NecklaceThumbnail,
   accessory_003: SunglassesThumbnail,
   accessory_004: EarringsThumbnail,
   accessory_005: HatThumbnail,
+  accessory_006: TiaraThumbnail,
+  accessory_007: BackpackThumbnail,
+  accessory_008: GlassesThumbnail,
 }
 
 // -----------------------------------------------------------------------------
@@ -252,15 +292,17 @@ function ItemCard({ item, index, onDragStart, onDragEnd, onItemClick }: ItemCard
       {/* Item name tooltip on hover (desktop) */}
       <div
         className="
-          absolute -bottom-6 left-1/2 -translate-x-1/2
-          px-2 py-0.5 rounded-full
-          bg-slate-800/90 dark:bg-white/90
+          absolute -bottom-7 left-1/2 -translate-x-1/2
+          px-2 py-1 rounded-md
+          bg-slate-800/95 dark:bg-white/95
           text-white dark:text-slate-800
           text-xs font-medium whitespace-nowrap
           opacity-0 group-hover:opacity-100
           pointer-events-none
           transition-opacity duration-200
           hidden sm:block
+          z-50
+          shadow-lg
         "
       >
         {item.name}
@@ -303,16 +345,17 @@ export function ItemGrid({ items, onDragStart, onDragEnd, onItemClick }: ItemGri
   }
 
   return (
-    <div className="p-3">
-      {/* Grid container - responsive layout */}
+    <div className="p-3 pb-8 overflow-visible">
+      {/* Grid container - responsive layout with space for tooltips */}
       <div
         key={gridKey}
         className="
-          grid gap-3
+          grid gap-4
           grid-cols-3
           sm:grid-cols-4
           lg:grid-cols-3
           xl:grid-cols-4
+          overflow-visible
         "
         role="list"
         aria-label="Clothing items grid"

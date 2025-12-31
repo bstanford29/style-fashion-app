@@ -3,9 +3,12 @@
 /**
  * Bottom Clothing SVG Components
  * All positioned to fit the 300x800 character viewBox
- * Waist/hips: y=320-400
- * Legs: y=400-780
- * Knee level: ~y=580
+ *
+ * NEW CHARACTER PROPORTIONS:
+ * - Waist/hips: y=350-400
+ * - Legs: y=400-740 (Left: x=110-130, Right: x=170-190)
+ * - Knee level: ~y=580
+ * - Feet start at y=740
  */
 
 interface BottomProps {
@@ -24,85 +27,85 @@ export function Jeans({ color = '#2C3E50', className = '' }: BottomProps) {
     <g className={className} data-item="jeans">
       {/* Waistband */}
       <path
-        d="M 100 320
-           Q 95 325, 95 340
-           L 205 340
-           Q 205 325, 200 320
-           Q 175 310, 150 310
-           Q 125 310, 100 320
+        d="M 105 350
+           Q 100 355, 100 370
+           L 200 370
+           Q 200 355, 195 350
+           Q 172 342, 150 342
+           Q 128 342, 105 350
            Z"
         fill={darkerColor}
       />
 
       {/* Belt loops */}
-      <rect x="110" y="318" width="8" height="25" fill={darkerColor} />
-      <rect x="140" y="318" width="8" height="25" fill={darkerColor} />
-      <rect x="152" y="318" width="8" height="25" fill={darkerColor} />
-      <rect x="182" y="318" width="8" height="25" fill={darkerColor} />
+      <rect x="112" y="348" width="6" height="22" fill={darkerColor} />
+      <rect x="142" y="348" width="6" height="22" fill={darkerColor} />
+      <rect x="152" y="348" width="6" height="22" fill={darkerColor} />
+      <rect x="182" y="348" width="6" height="22" fill={darkerColor} />
 
-      {/* Left leg */}
+      {/* Left leg - matches body: x=110-130, y=400-740 */}
       <path
-        d="M 95 340
-           Q 92 400, 95 480
-           Q 98 560, 102 650
-           Q 105 720, 110 780
-           L 145 780
-           Q 142 720, 140 650
-           Q 138 560, 140 480
-           Q 142 400, 145 340
+        d="M 100 370
+           Q 102 400, 105 480
+           Q 108 560, 108 620
+           Q 108 680, 105 740
+           L 135 740
+           Q 132 680, 132 620
+           Q 132 560, 132 480
+           Q 135 400, 140 370
            Z"
         fill={color}
       />
 
-      {/* Right leg */}
+      {/* Right leg - matches body: x=170-190, y=400-740 */}
       <path
-        d="M 155 340
-           Q 158 400, 160 480
-           Q 162 560, 160 650
-           Q 158 720, 155 780
-           L 190 780
-           Q 195 720, 198 650
-           Q 202 560, 205 480
-           Q 208 400, 205 340
+        d="M 160 370
+           Q 165 400, 168 480
+           Q 168 560, 168 620
+           Q 168 680, 165 740
+           L 195 740
+           Q 198 680, 198 620
+           Q 198 560, 195 480
+           Q 198 400, 200 370
            Z"
         fill={color}
       />
 
       {/* Center seam/fly */}
       <path
-        d="M 145 340
-           Q 150 360, 155 340"
+        d="M 140 370
+           Q 150 385, 160 370"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
       />
-      <line x1="150" y1="340" x2="150" y2="420" stroke={darkerColor} strokeWidth="2" />
+      <line x1="150" y1="370" x2="150" y2="430" stroke={darkerColor} strokeWidth="2" />
 
       {/* Front pockets */}
       <path
-        d="M 100 345 Q 115 355, 118 380 L 105 385 Q 100 360, 100 345 Z"
+        d="M 102 375 Q 115 385, 118 405 L 108 408 Q 105 388, 102 375 Z"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
       />
       <path
-        d="M 200 345 Q 185 355, 182 380 L 195 385 Q 200 360, 200 345 Z"
+        d="M 198 375 Q 185 385, 182 405 L 192 408 Q 195 388, 198 375 Z"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
       />
 
       {/* Knee wear highlights */}
-      <ellipse cx="125" cy="580" rx="15" ry="20" fill={lighterColor} opacity="0.2" />
-      <ellipse cx="175" cy="580" rx="15" ry="20" fill={lighterColor} opacity="0.2" />
+      <ellipse cx="120" cy="580" rx="10" ry="18" fill={lighterColor} opacity="0.2" />
+      <ellipse cx="180" cy="580" rx="10" ry="18" fill={lighterColor} opacity="0.2" />
 
       {/* Inner leg seams */}
-      <line x1="140" y1="400" x2="142" y2="780" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
-      <line x1="160" y1="400" x2="158" y2="780" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
+      <line x1="135" y1="410" x2="133" y2="740" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
+      <line x1="165" y1="410" x2="167" y2="740" stroke={darkerColor} strokeWidth="1" opacity="0.5" />
 
       {/* Hem details */}
-      <line x1="110" y1="775" x2="145" y2="775" stroke={darkerColor} strokeWidth="2" />
-      <line x1="155" y1="775" x2="190" y2="775" stroke={darkerColor} strokeWidth="2" />
+      <line x1="105" y1="735" x2="135" y2="735" stroke={darkerColor} strokeWidth="2" />
+      <line x1="165" y1="735" x2="195" y2="735" stroke={darkerColor} strokeWidth="2" />
     </g>
   )
 }
@@ -117,24 +120,24 @@ export function Skirt({ color = '#E74C3C', className = '' }: BottomProps) {
     <g className={className} data-item="skirt">
       {/* Waistband */}
       <path
-        d="M 105 320
-           Q 100 325, 100 340
-           L 200 340
-           Q 200 325, 195 320
-           Q 175 310, 150 310
-           Q 125 310, 105 320
+        d="M 108 350
+           Q 102 355, 102 370
+           L 198 370
+           Q 198 355, 192 350
+           Q 172 342, 150 342
+           Q 128 342, 108 350
            Z"
         fill={darkerColor}
       />
 
       {/* Main skirt body - A-line flare */}
       <path
-        d="M 100 340
-           Q 85 400, 80 480
-           Q 78 530, 85 560
+        d="M 102 370
+           Q 90 420, 82 500
+           Q 80 540, 85 560
            L 215 560
-           Q 222 530, 220 480
-           Q 215 400, 200 340
+           Q 220 540, 218 500
+           Q 210 420, 198 370
            Z"
         fill={color}
       />
@@ -142,10 +145,9 @@ export function Skirt({ color = '#E74C3C', className = '' }: BottomProps) {
       {/* Hem detail */}
       <path
         d="M 85 560
-           Q 90 565, 100 562
-           Q 125 558, 150 560
-           Q 175 558, 200 562
-           Q 210 565, 215 560"
+           Q 95 568, 120 564
+           Q 150 560, 180 564
+           Q 205 568, 215 560"
         fill="none"
         stroke={darkerColor}
         strokeWidth="3"
@@ -153,21 +155,21 @@ export function Skirt({ color = '#E74C3C', className = '' }: BottomProps) {
 
       {/* Folds/pleats suggestion */}
       <path
-        d="M 120 350 Q 118 420, 105 520"
+        d="M 120 380 Q 115 450, 100 540"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
         opacity="0.4"
       />
       <path
-        d="M 150 340 Q 150 420, 150 540"
+        d="M 150 370 Q 150 450, 150 550"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
         opacity="0.3"
       />
       <path
-        d="M 180 350 Q 182 420, 195 520"
+        d="M 180 380 Q 185 450, 200 540"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
@@ -175,13 +177,13 @@ export function Skirt({ color = '#E74C3C', className = '' }: BottomProps) {
       />
 
       {/* Decorative bow at waist */}
-      <circle cx="150" cy="330" r="8" fill={darkerColor} />
+      <circle cx="150" cy="360" r="7" fill={darkerColor} />
       <path
-        d="M 142 330 Q 130 325, 135 330 Q 130 335, 142 330"
+        d="M 143 360 Q 132 355, 136 360 Q 132 365, 143 360"
         fill={darkerColor}
       />
       <path
-        d="M 158 330 Q 170 325, 165 330 Q 170 335, 158 330"
+        d="M 157 360 Q 168 355, 164 360 Q 168 365, 157 360"
         fill={darkerColor}
       />
     </g>
@@ -198,58 +200,58 @@ export function Shorts({ color = '#1ABC9C', className = '' }: BottomProps) {
     <g className={className} data-item="shorts">
       {/* Waistband */}
       <path
-        d="M 100 320
-           Q 95 325, 95 345
-           L 205 345
-           Q 205 325, 200 320
-           Q 175 310, 150 310
-           Q 125 310, 100 320
+        d="M 105 350
+           Q 100 355, 100 372
+           L 200 372
+           Q 200 355, 195 350
+           Q 172 342, 150 342
+           Q 128 342, 105 350
            Z"
         fill={darkerColor}
       />
 
       {/* Left leg */}
       <path
-        d="M 95 345
-           Q 90 380, 88 420
-           Q 86 460, 90 490
-           L 145 490
-           Q 142 460, 145 420
-           Q 148 380, 150 345
+        d="M 100 372
+           Q 98 400, 95 440
+           Q 92 475, 95 500
+           L 142 500
+           Q 140 475, 142 440
+           Q 145 400, 145 372
            Z"
         fill={color}
       />
 
       {/* Right leg */}
       <path
-        d="M 150 345
-           Q 152 380, 155 420
-           Q 158 460, 155 490
-           L 210 490
-           Q 214 460, 212 420
-           Q 210 380, 205 345
+        d="M 155 372
+           Q 155 400, 158 440
+           Q 160 475, 158 500
+           L 205 500
+           Q 208 475, 205 440
+           Q 202 400, 200 372
            Z"
         fill={color}
       />
 
       {/* Center seam */}
       <path
-        d="M 145 345 Q 150 360, 155 345"
+        d="M 145 372 Q 150 390, 155 372"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
       />
-      <line x1="150" y1="345" x2="150" y2="410" stroke={darkerColor} strokeWidth="2" />
+      <line x1="150" y1="372" x2="150" y2="430" stroke={darkerColor} strokeWidth="2" />
 
       {/* Pockets */}
       <path
-        d="M 100 350 Q 110 360, 112 390"
+        d="M 102 378 Q 112 388, 115 410"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
       />
       <path
-        d="M 200 350 Q 190 360, 188 390"
+        d="M 198 378 Q 188 388, 185 410"
         fill="none"
         stroke={darkerColor}
         strokeWidth="2"
@@ -257,12 +259,12 @@ export function Shorts({ color = '#1ABC9C', className = '' }: BottomProps) {
 
       {/* Hem cuffs */}
       <path
-        d="M 90 480 L 145 480 L 145 490 L 90 490 Z"
+        d="M 95 490 L 142 490 L 142 500 L 95 500 Z"
         fill={darkerColor}
         opacity="0.5"
       />
       <path
-        d="M 155 480 L 210 480 L 210 490 L 155 490 Z"
+        d="M 158 490 L 205 490 L 205 500 L 158 500 Z"
         fill={darkerColor}
         opacity="0.5"
       />
@@ -279,146 +281,122 @@ export function Leggings({ color = '#2C2C2C', className = '' }: BottomProps) {
 
   return (
     <g className={className} data-item="leggings">
-      {/* High waistband - sits at natural waist, covers midsection */}
+      {/* High waistband */}
       <path
-        d="M 108 310
-           Q 100 318, 98 335
-           Q 96 350, 100 365
-           L 200 365
-           Q 204 350, 202 335
-           Q 200 318, 192 310
-           Q 172 300, 150 300
-           Q 128 300, 108 310
+        d="M 110 340
+           Q 102 348, 100 362
+           Q 98 378, 102 395
+           L 198 395
+           Q 202 378, 200 362
+           Q 198 348, 190 340
+           Q 172 332, 150 332
+           Q 128 332, 110 340
            Z"
         fill={lighterColor}
       />
 
       {/* Waistband fold detail */}
       <path
-        d="M 102 345 Q 150 350, 198 345"
+        d="M 105 375 Q 150 380, 195 375"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1"
         opacity="0.3"
       />
 
-      {/* Hip/crotch area - covers the underwear completely */}
+      {/* Hip/crotch area */}
       <path
-        d="M 100 365
-           Q 98 385, 102 400
-           L 130 400
-           L 150 385
-           L 170 400
-           L 198 400
-           Q 202 385, 200 365
+        d="M 102 395
+           Q 100 410, 105 420
+           L 130 420
+           L 150 405
+           L 170 420
+           L 195 420
+           Q 200 410, 198 395
            Z"
         fill={color}
       />
 
-      {/* Left leg - skin tight, follows body contour exactly */}
-      {/* Body leg reference: x=105-140 at hips, curves to x=120-140 at ankle y=780 */}
+      {/* Left leg - follows new body: x=110-130, y=400-740 */}
       <path
-        d="M 102 400
-           Q 98 420, 102 480
-           Q 105 550, 110 620
-           Q 113 680, 116 730
-           Q 118 760, 120 780
-           L 140 780
-           Q 138 760, 136 730
-           Q 134 680, 132 620
-           Q 130 550, 130 480
-           Q 130 420, 130 400
+        d="M 105 420
+           Q 105 460, 107 520
+           Q 108 580, 108 640
+           Q 108 700, 107 740
+           L 133 740
+           Q 132 700, 132 640
+           Q 132 580, 132 520
+           Q 132 460, 130 420
            Z"
         fill={color}
       />
 
-      {/* Right leg - skin tight, follows body contour exactly */}
-      {/* Body leg reference: x=165-190 at hips, curves to x=160-180 at ankle y=780 */}
+      {/* Right leg - follows new body: x=170-190, y=400-740 */}
       <path
-        d="M 170 400
-           Q 170 420, 170 480
-           Q 168 550, 166 620
-           Q 164 680, 162 730
-           Q 160 760, 160 780
-           L 180 780
-           Q 182 760, 185 730
-           Q 188 680, 192 620
-           Q 196 550, 198 480
-           Q 202 420, 198 400
+        d="M 170 420
+           Q 168 460, 168 520
+           Q 168 580, 168 640
+           Q 168 700, 167 740
+           L 193 740
+           Q 192 700, 192 640
+           Q 192 580, 193 520
+           Q 195 460, 195 420
            Z"
         fill={color}
       />
 
       {/* Center seam */}
       <path
-        d="M 130 400 Q 150 420, 170 400"
+        d="M 130 420 Q 150 438, 170 420"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
         opacity="0.4"
       />
-      <line x1="150" y1="385" x2="150" y2="420" stroke={darkerColor} strokeWidth="1" opacity="0.3" />
+      <line x1="150" y1="405" x2="150" y2="438" stroke={darkerColor} strokeWidth="1" opacity="0.3" />
 
       {/* Inner leg seams */}
       <path
-        d="M 130 420 Q 132 550, 135 700 Q 137 750, 138 780"
+        d="M 130 440 Q 132 580, 132 740"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1"
         opacity="0.25"
       />
       <path
-        d="M 170 420 Q 168 550, 165 700 Q 163 750, 162 780"
+        d="M 170 440 Q 168 580, 168 740"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1"
         opacity="0.25"
       />
 
-      {/* Subtle shine/highlight on thighs - athletic look */}
+      {/* Subtle shine/highlight on thighs */}
       <path
-        d="M 112 420 Q 116 500, 118 580"
+        d="M 112 450 Q 114 530, 114 600"
         fill="none"
         stroke={lighterColor}
-        strokeWidth="10"
+        strokeWidth="8"
         opacity="0.12"
         strokeLinecap="round"
       />
       <path
-        d="M 188 420 Q 184 500, 182 580"
+        d="M 188 450 Q 186 530, 186 600"
         fill="none"
         stroke={lighterColor}
-        strokeWidth="10"
+        strokeWidth="8"
         opacity="0.12"
-        strokeLinecap="round"
-      />
-
-      {/* Calf muscle definition */}
-      <path
-        d="M 115 620 Q 118 660, 118 700"
-        fill="none"
-        stroke={lighterColor}
-        strokeWidth="6"
-        opacity="0.08"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 185 620 Q 182 660, 182 700"
-        fill="none"
-        stroke={lighterColor}
-        strokeWidth="6"
-        opacity="0.08"
         strokeLinecap="round"
       />
 
       {/* Ankle cuffs */}
       <path
-        d="M 118 775 L 142 775 L 142 782 L 118 782 Z"
+        d="M 107 735 L 133 735 L 133 742 L 107 742 Z"
         fill={darkerColor}
         opacity="0.4"
       />
       <path
-        d="M 158 775 L 182 775 L 182 782 L 158 782 Z"
+        d="M 167 735 L 193 735 L 193 742 L 167 742 Z"
         fill={darkerColor}
         opacity="0.4"
       />
@@ -437,42 +415,41 @@ export function PleatedSkirt({ color = '#34495E', className = '' }: BottomProps)
     <g className={className} data-item="pleated-skirt">
       {/* Waistband */}
       <path
-        d="M 105 320
-           Q 100 325, 100 342
-           L 200 342
-           Q 200 325, 195 320
-           Q 175 310, 150 310
-           Q 125 310, 105 320
+        d="M 108 350
+           Q 102 355, 102 372
+           L 198 372
+           Q 198 355, 192 350
+           Q 172 342, 150 342
+           Q 128 342, 108 350
            Z"
         fill={darkerColor}
       />
 
       {/* Solid backing to prevent see-through */}
       <path
-        d="M 78 342 L 78 500 L 224 500 L 224 342 Z"
+        d="M 80 372 L 80 520 L 220 520 L 220 372 Z"
         fill={color}
       />
 
       {/* Pleated body - alternating light/dark pleats */}
-      {/* Each pleat is a triangle shape */}
       {[...Array(12)].map((_, i) => {
-        const x = 80 + i * 12
+        const x = 82 + i * 11.5
         const isLight = i % 2 === 0
         return (
           <path
             key={i}
-            d={`M ${x + 6} 342 L ${x - 2} 500 L ${x + 14} 500 Z`}
+            d={`M ${x + 5.75} 372 L ${x - 2} 520 L ${x + 13.5} 520 Z`}
             fill={isLight ? lighterColor : color}
           />
         )
       })}
 
       {/* Overlay to smooth the top */}
-      <rect x="95" y="340" width="110" height="10" fill={color} />
+      <rect x="100" y="370" width="100" height="10" fill={color} />
 
       {/* Hem line */}
       <path
-        d="M 78 495 L 224 495"
+        d="M 80 515 L 220 515"
         fill="none"
         stroke={darkerColor}
         strokeWidth="3"
@@ -482,10 +459,10 @@ export function PleatedSkirt({ color = '#34495E', className = '' }: BottomProps)
       {[...Array(11)].map((_, i) => (
         <line
           key={i}
-          x1={92 + i * 12}
-          y1="350"
-          x2={88 + i * 12}
-          y2="495"
+          x1={93.5 + i * 11.5}
+          y1="380"
+          x2={90 + i * 11.5}
+          y2="515"
           stroke={darkerColor}
           strokeWidth="1"
           opacity="0.6"

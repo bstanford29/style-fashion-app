@@ -1,6 +1,7 @@
 /**
  * Clothing Items Data
- * Complete definitions for all 25 clothing items across 5 categories
+ * Complete definitions for all 40 clothing items across 5 categories
+ * (25 original + 15 new)
  */
 
 import type { ClothingCategory } from '@/lib/types'
@@ -58,9 +59,34 @@ export const CLOTHING_ITEMS: ClothingItemData[] = [
     defaultColor: '#FFD700',
     zIndex: 60,
   },
+  // NEW Hair Styles
+  {
+    id: 'hair_006',
+    name: 'Space Buns',
+    category: 'hair',
+    componentName: 'SpaceBuns',
+    defaultColor: '#4A3728',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_007',
+    name: 'Pixie Cut',
+    category: 'hair',
+    componentName: 'PixieCut',
+    defaultColor: '#2C1810',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_008',
+    name: 'Side Braid',
+    category: 'hair',
+    componentName: 'SideBraid',
+    defaultColor: '#8B4513',
+    zIndex: 60,
+  },
 
   // ==========================================================================
-  // TOPS (5 items) - zIndex: 30 (over torso)
+  // TOPS (8 items) - zIndex: 30 (over torso)
   // ==========================================================================
   {
     id: 'top_001',
@@ -102,9 +128,34 @@ export const CLOTHING_ITEMS: ClothingItemData[] = [
     defaultColor: '#3498DB',
     zIndex: 30,
   },
+  // NEW Tops
+  {
+    id: 'top_006',
+    name: 'Sundress',
+    category: 'top',
+    componentName: 'Sundress',
+    defaultColor: '#FFB6C1',
+    zIndex: 30,
+  },
+  {
+    id: 'top_007',
+    name: 'Cardigan',
+    category: 'top',
+    componentName: 'Cardigan',
+    defaultColor: '#DEB887',
+    zIndex: 32,
+  },
+  {
+    id: 'top_008',
+    name: 'Denim Jacket',
+    category: 'top',
+    componentName: 'DenimJacket',
+    defaultColor: '#4682B4',
+    zIndex: 32,
+  },
 
   // ==========================================================================
-  // BOTTOMS (5 items) - zIndex: 20 (over legs)
+  // BOTTOMS (8 items) - zIndex: 20 (over legs)
   // ==========================================================================
   {
     id: 'bottom_001',
@@ -146,9 +197,34 @@ export const CLOTHING_ITEMS: ClothingItemData[] = [
     defaultColor: '#34495E',
     zIndex: 20,
   },
+  // NEW Bottoms
+  {
+    id: 'bottom_006',
+    name: 'Overalls',
+    category: 'bottom',
+    componentName: 'Overalls',
+    defaultColor: '#4A90D9',
+    zIndex: 25,
+  },
+  {
+    id: 'bottom_007',
+    name: 'Tutu',
+    category: 'bottom',
+    componentName: 'Tutu',
+    defaultColor: '#FFB6C1',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_008',
+    name: 'Joggers',
+    category: 'bottom',
+    componentName: 'Joggers',
+    defaultColor: '#2C3E50',
+    zIndex: 20,
+  },
 
   // ==========================================================================
-  // SHOES (5 items) - zIndex: 10 (at feet level)
+  // SHOES (8 items) - zIndex: 10 (at feet level)
   // ==========================================================================
   {
     id: 'shoes_001',
@@ -190,9 +266,34 @@ export const CLOTHING_ITEMS: ClothingItemData[] = [
     defaultColor: '#C0392B',
     zIndex: 10,
   },
+  // NEW Shoes
+  {
+    id: 'shoes_006',
+    name: 'Mary Janes',
+    category: 'shoes',
+    componentName: 'MaryJanes',
+    defaultColor: '#1a1a1a',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_007',
+    name: 'Rain Boots',
+    category: 'shoes',
+    componentName: 'RainBoots',
+    defaultColor: '#FFD700',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_008',
+    name: 'Loafers',
+    category: 'shoes',
+    componentName: 'Loafers',
+    defaultColor: '#8B4513',
+    zIndex: 10,
+  },
 
   // ==========================================================================
-  // ACCESSORIES (5 items) - zIndex: 50-70 (varies by type)
+  // ACCESSORIES (8 items) - zIndex: 50-75 (varies by type)
   // ==========================================================================
   {
     id: 'accessory_001',
@@ -233,6 +334,31 @@ export const CLOTHING_ITEMS: ClothingItemData[] = [
     componentName: 'Hat',
     defaultColor: '#4169E1',
     zIndex: 75,
+  },
+  // NEW Accessories
+  {
+    id: 'accessory_006',
+    name: 'Tiara',
+    category: 'accessory',
+    componentName: 'Tiara',
+    defaultColor: '#FFD700',
+    zIndex: 72,
+  },
+  {
+    id: 'accessory_007',
+    name: 'Backpack',
+    category: 'accessory',
+    componentName: 'Backpack',
+    defaultColor: '#FF6B6B',
+    zIndex: 5,
+  },
+  {
+    id: 'accessory_008',
+    name: 'Glasses',
+    category: 'accessory',
+    componentName: 'Glasses',
+    defaultColor: '#1a1a1a',
+    zIndex: 65,
   },
 ]
 
