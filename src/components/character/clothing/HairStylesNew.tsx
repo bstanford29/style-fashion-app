@@ -105,43 +105,59 @@ export function SideBraid({ color = '#8B4513', className = '' }: HairProps) {
 
   return (
     <g className={className}>
-      {/* Top of head */}
-      <ellipse cx="145" cy="52" rx="55" ry="28" fill={color} />
+      {/* Main hair mass covering top of head */}
+      <ellipse cx="148" cy="58" rx="56" ry="32" fill={color} />
 
-      {/* Crown volume */}
-      <path d="M 98 48 Q 115 30, 150 30 Q 185 30, 198 52 Q 180 42, 150 38 Q 120 42, 98 48 Z" fill={color} />
+      {/* Crown volume - fuller coverage */}
+      <path d="M 95 55 Q 110 32, 150 30 Q 190 32, 205 55 Q 185 45, 150 42 Q 115 45, 95 55 Z" fill={color} />
 
-      {/* Hair flowing to left side */}
-      <path d="M 98 52 Q 82 70, 78 102 Q 76 135, 84 158 L 110 152 Q 104 135, 108 102 Q 112 75, 115 58 Z" fill={color} />
+      {/* Hair wrapping around sides of head */}
+      <path
+        d="M 95 52
+           Q 88 68, 92 88
+           Q 95 72, 100 58
+           Z"
+        fill={color}
+      />
+      <path
+        d="M 205 52
+           Q 212 68, 208 88
+           Q 205 72, 200 58
+           Z"
+        fill={color}
+      />
 
-      {/* Right side tucked */}
-      <path d="M 198 58 Q 210 75, 206 102 Q 204 125, 198 138 L 186 132 Q 190 120, 192 102 Q 195 80, 190 62 Z" fill={color} />
+      {/* Hair flowing to left side into braid */}
+      <path d="M 92 55 Q 78 75, 75 110 Q 72 145, 80 165 L 105 160 Q 100 145, 102 115 Q 105 82, 110 60 Z" fill={color} />
+
+      {/* Right side tucked behind ear */}
+      <path d="M 200 58 Q 212 78, 208 108 Q 206 130, 200 145 L 188 140 Q 192 125, 194 108 Q 198 82, 192 62 Z" fill={color} />
 
       {/* Braid segments */}
       {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
-        const y = 160 + i * 20
+        const y = 168 + i * 20
         const offset = i % 2 === 0 ? -4 : 4
         return (
           <g key={i}>
-            <ellipse cx={92 + offset} cy={y} rx="14" ry="12" fill={color} />
-            <path d={`M ${85 + offset} ${y - 6} Q ${92 + offset} ${y}, ${99 + offset} ${y - 6}`} fill="none" stroke={darkerColor} strokeWidth="1.5" opacity="0.4" />
+            <ellipse cx={90 + offset} cy={y} rx="14" ry="12" fill={color} />
+            <path d={`M ${83 + offset} ${y - 6} Q ${90 + offset} ${y}, ${97 + offset} ${y - 6}`} fill="none" stroke={darkerColor} strokeWidth="1.5" opacity="0.4" />
           </g>
         )
       })}
 
       {/* Hair tie */}
-      <ellipse cx="92" cy="325" rx="10" ry="6" fill="#FF69B4" />
-      <ellipse cx="90" cy="323" rx="3" ry="2" fill="rgba(255,255,255,0.4)" />
+      <ellipse cx="90" cy="332" rx="10" ry="6" fill="#FF69B4" />
+      <ellipse cx="88" cy="330" rx="3" ry="2" fill="rgba(255,255,255,0.4)" />
 
       {/* Braid tail */}
-      <path d="M 85 330 Q 82 340, 88 350 Q 94 360, 90 370 L 98 370 Q 102 360, 98 350 Q 94 340, 100 330 Z" fill={color} />
+      <path d="M 83 338 Q 80 348, 86 358 Q 92 368, 88 378 L 96 378 Q 100 368, 96 358 Q 92 348, 98 338 Z" fill={color} />
 
       {/* Bangs - STOP AT y=58 MAX (side swept style) */}
-      <path d="M 118 42 Q 138 35, 158 38 Q 170 40, 182 48 Q 178 54, 172 58 Q 158 54, 145 56 Q 132 54, 122 58 Q 120 52, 118 42 Z" fill={color} />
+      <path d="M 115 45 Q 135 38, 158 40 Q 172 42, 185 50 Q 180 55, 175 58 Q 160 54, 145 56 Q 130 54, 120 58 Q 118 52, 115 45 Z" fill={color} />
 
       {/* Highlights */}
-      <path d="M 115 38 Q 145 30, 175 42" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
-      <ellipse cx="86" cy="178" rx="4" ry="6" fill={lighterColor} opacity="0.2" />
+      <path d="M 115 42 Q 148 32, 180 45" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
+      <ellipse cx="84" cy="185" rx="4" ry="6" fill={lighterColor} opacity="0.2" />
     </g>
   )
 }

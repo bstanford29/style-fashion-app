@@ -203,51 +203,67 @@ export function PonytailHair({ color = '#8B4513', className = '' }: HairProps) {
         opacity="0.5"
       />
 
-      {/* Top of head - pulled back look */}
-      <ellipse cx="150" cy="52" rx="52" ry="22" fill={color} />
+      {/* Main hair mass covering top and wrapping around head */}
+      <ellipse cx="150" cy="55" rx="55" ry="30" fill={color} />
 
-      {/* Hair volume at crown - slightly raised for ponytail gathering */}
+      {/* Hair volume at crown - pulled back look */}
       <path
-        d="M 108 58
-           Q 118 32, 150 32
-           Q 182 32, 192 58
-           Q 175 48, 150 45
-           Q 125 48, 108 58
+        d="M 100 60
+           Q 110 35, 150 32
+           Q 190 35, 200 60
+           Q 180 50, 150 48
+           Q 120 50, 100 60
+           Z"
+        fill={color}
+      />
+
+      {/* Hair wrapping around sides of head */}
+      <path
+        d="M 98 55
+           Q 92 70, 95 90
+           Q 98 75, 102 60
+           Z"
+        fill={color}
+      />
+      <path
+        d="M 202 55
+           Q 208 70, 205 90
+           Q 202 75, 198 60
            Z"
         fill={color}
       />
 
       {/* Side strands framing face - stays OUTSIDE face (x<100 and x>200) */}
       <path
-        d="M 95 52
-           Q 85 70, 88 100
-           Q 90 130, 95 160
-           L 102 158
-           Q 98 130, 98 100
-           Q 98 72, 105 55
+        d="M 95 55
+           Q 85 75, 88 105
+           Q 90 135, 95 165
+           L 102 162
+           Q 98 135, 98 105
+           Q 98 78, 105 58
            Z"
         fill={color}
       />
       <path
-        d="M 205 52
-           Q 215 70, 212 100
-           Q 210 130, 205 160
-           L 198 158
-           Q 202 130, 202 100
-           Q 202 72, 195 55
+        d="M 205 55
+           Q 215 75, 212 105
+           Q 210 135, 205 165
+           L 198 162
+           Q 202 135, 202 105
+           Q 202 78, 195 58
            Z"
         fill={color}
       />
 
       {/* Hair tie at back of head - positioned at top-back */}
-      <ellipse cx="150" cy="40" rx="18" ry="8" fill={darkerColor} />
-      <ellipse cx="150" cy="40" rx="10" ry="5" fill="#FF69B4" />
+      <ellipse cx="150" cy="42" rx="18" ry="8" fill={darkerColor} />
+      <ellipse cx="150" cy="42" rx="10" ry="5" fill="#FF69B4" />
       {/* Hair tie shine */}
-      <ellipse cx="147" cy="38" rx="3" ry="2" fill="rgba(255,255,255,0.3)" />
+      <ellipse cx="147" cy="40" rx="3" ry="2" fill="rgba(255,255,255,0.3)" />
 
       {/* Wispy baby hairs at temples - STOP AT y=58 */}
       <path
-        d="M 102 52 Q 98 55, 100 58"
+        d="M 102 55 Q 98 57, 100 58"
         fill="none"
         stroke={color}
         strokeWidth="2"
@@ -255,7 +271,7 @@ export function PonytailHair({ color = '#8B4513', className = '' }: HairProps) {
         opacity="0.7"
       />
       <path
-        d="M 198 52 Q 202 55, 200 58"
+        d="M 198 55 Q 202 57, 200 58"
         fill="none"
         stroke={color}
         strokeWidth="2"
@@ -263,19 +279,19 @@ export function PonytailHair({ color = '#8B4513', className = '' }: HairProps) {
         opacity="0.7"
       />
 
-      {/* Subtle side-swept bangs - STOP AT y=56 MAX */}
+      {/* Subtle side-swept bangs - STOP AT y=58 MAX */}
       <path
-        d="M 118 45
-           Q 130 40, 142 42
-           Q 138 52, 132 56
-           Q 128 52, 118 45
+        d="M 115 48
+           Q 130 42, 145 44
+           Q 140 54, 132 58
+           Q 125 54, 115 48
            Z"
         fill={color}
       />
 
       {/* Highlight on top of head */}
       <path
-        d="M 125 45 Q 145 38, 165 45"
+        d="M 120 48 Q 145 40, 170 48"
         fill="none"
         stroke="rgba(255,255,255,0.2)"
         strokeWidth="4"
@@ -300,61 +316,77 @@ function adjustColorHair(hex: string, amount: number): string {
 export function CurlyWavyHair({ color = '#1C1C1C', className = '' }: HairProps) {
   return (
     <g className={className} data-item="curly-wavy-hair">
-      {/* Voluminous curly mass - sits on TOP of head only */}
-      <ellipse cx="150" cy="40" rx="62" ry="32" fill={color} />
+      {/* Main hair mass covering top and sides of head */}
+      <ellipse cx="150" cy="60" rx="58" ry="35" fill={color} />
+
+      {/* Additional coverage wrapping around head */}
+      <path
+        d="M 95 55
+           Q 88 70, 92 90
+           Q 95 75, 100 60
+           Z"
+        fill={color}
+      />
+      <path
+        d="M 205 55
+           Q 212 70, 208 90
+           Q 205 75, 200 60
+           Z"
+        fill={color}
+      />
 
       {/* Curly sides - left (OUTSIDE face at x<95) */}
       <path
-        d="M 75 52
-           Q 62 75, 65 105
-           Q 62 135, 70 165
-           Q 65 195, 78 225
-           L 92 220
-           Q 82 192, 86 165
-           Q 80 138, 88 110
-           Q 82 85, 90 58
+        d="M 80 55
+           Q 68 80, 70 115
+           Q 68 150, 75 185
+           Q 70 215, 82 245
+           L 95 240
+           Q 85 212, 88 185
+           Q 82 155, 90 120
+           Q 85 90, 95 62
            Z"
         fill={color}
       />
 
       {/* Curly sides - right (OUTSIDE face at x>205) */}
       <path
-        d="M 225 52
-           Q 238 75, 235 105
-           Q 238 135, 230 165
-           Q 235 195, 222 225
-           L 208 220
-           Q 218 192, 214 165
-           Q 220 138, 212 110
-           Q 218 85, 210 58
+        d="M 220 55
+           Q 232 80, 230 115
+           Q 232 150, 225 185
+           Q 230 215, 218 245
+           L 205 240
+           Q 215 212, 212 185
+           Q 218 155, 210 120
+           Q 215 90, 205 62
            Z"
         fill={color}
       />
 
-      {/* Top curls - add volume on TOP, not over face */}
-      <circle cx="95" cy="35" r="14" fill={color} />
-      <circle cx="125" cy="22" r="15" fill={color} />
-      <circle cx="155" cy="20" r="15" fill={color} />
-      <circle cx="185" cy="25" r="14" fill={color} />
-      <circle cx="210" cy="38" r="12" fill={color} />
+      {/* Top curls - voluminous but sitting ON the head */}
+      <circle cx="90" cy="50" r="16" fill={color} />
+      <circle cx="115" cy="38" r="17" fill={color} />
+      <circle cx="150" cy="32" r="18" fill={color} />
+      <circle cx="185" cy="38" r="17" fill={color} />
+      <circle cx="210" cy="50" r="16" fill={color} />
 
-      {/* Front curly bangs - STOP AT y=55 MAX (well above eyebrows at y=64) */}
+      {/* Front curly bangs - STOP AT y=58 MAX (above eyebrows at y=64) */}
       <path
-        d="M 120 42
-           Q 115 48, 120 53
-           Q 130 48, 140 53
-           Q 148 48, 155 52
-           Q 165 48, 175 53
-           Q 182 48, 178 42
-           Q 165 35, 150 36
-           Q 135 35, 120 42
+        d="M 115 50
+           Q 110 55, 115 58
+           Q 128 54, 140 58
+           Q 150 54, 160 58
+           Q 172 54, 185 58
+           Q 190 55, 185 50
+           Q 168 42, 150 44
+           Q 132 42, 115 50
            Z"
         fill={color}
       />
 
       {/* Highlights */}
-      <circle cx="130" cy="38" r="5" fill="rgba(255,255,255,0.1)" />
-      <circle cx="170" cy="35" r="6" fill="rgba(255,255,255,0.1)" />
+      <circle cx="125" cy="42" r="5" fill="rgba(255,255,255,0.1)" />
+      <circle cx="175" cy="42" r="6" fill="rgba(255,255,255,0.1)" />
     </g>
   )
 }
