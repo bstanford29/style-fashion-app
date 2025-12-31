@@ -19,34 +19,36 @@ interface AccessoryProps {
 export function BowHeadband({ color = '#FF69B4', className = '' }: AccessoryProps) {
   const darkerColor = adjustColor(color, -30)
 
+  // Head is ellipse at cy=90, ry=55, so top of head is at y=35
+  // Headband should sit on top of head around y=35-50
   return (
     <g className={className} data-item="bow-headband">
-      {/* Headband arc */}
+      {/* Headband arc - sits on top of head */}
       <path
-        d="M 108 45
-           Q 105 30, 115 20
-           Q 135 8, 150 8
-           Q 165 8, 185 20
-           Q 195 30, 192 45"
+        d="M 108 65
+           Q 105 50, 115 42
+           Q 135 35, 150 35
+           Q 165 35, 185 42
+           Q 195 50, 192 65"
         fill="none"
         stroke={color}
         strokeWidth="6"
         strokeLinecap="round"
       />
 
-      {/* Bow center */}
-      <ellipse cx="150" cy="8" rx="8" ry="6" fill={color} />
+      {/* Bow center - at top of headband */}
+      <ellipse cx="150" cy="35" rx="8" ry="6" fill={color} />
 
       {/* Left bow loop */}
       <path
-        d="M 142 8
-           Q 125 -5, 120 8
-           Q 125 20, 142 8
+        d="M 142 35
+           Q 125 22, 120 35
+           Q 125 48, 142 35
            Z"
         fill={color}
       />
       <path
-        d="M 130 3 Q 128 8, 132 12"
+        d="M 130 30 Q 128 35, 132 40"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
@@ -54,14 +56,14 @@ export function BowHeadband({ color = '#FF69B4', className = '' }: AccessoryProp
 
       {/* Right bow loop */}
       <path
-        d="M 158 8
-           Q 175 -5, 180 8
-           Q 175 20, 158 8
+        d="M 158 35
+           Q 175 22, 180 35
+           Q 175 48, 158 35
            Z"
         fill={color}
       />
       <path
-        d="M 170 3 Q 172 8, 168 12"
+        d="M 170 30 Q 172 35, 168 40"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1.5"
@@ -69,14 +71,14 @@ export function BowHeadband({ color = '#FF69B4', className = '' }: AccessoryProp
 
       {/* Bow tails */}
       <path
-        d="M 145 12 Q 140 25, 135 35"
+        d="M 145 40 Q 140 52, 135 60"
         fill="none"
         stroke={color}
         strokeWidth="4"
         strokeLinecap="round"
       />
       <path
-        d="M 155 12 Q 160 25, 165 35"
+        d="M 155 40 Q 160 52, 165 60"
         fill="none"
         stroke={color}
         strokeWidth="4"
@@ -92,15 +94,16 @@ export function BowHeadband({ color = '#FF69B4', className = '' }: AccessoryProp
 export function Necklace({ color = '#FFD700', className = '' }: AccessoryProps) {
   const chainColor = adjustColor(color, -20)
 
+  // Neck is at y=140-170, necklace should drape around neck/upper chest
   return (
     <g className={className} data-item="necklace">
-      {/* Chain around neck */}
+      {/* Chain around neck - starts at base of neck y=165 */}
       <path
-        d="M 125 105
-           Q 120 115, 125 130
-           Q 140 145, 150 150
-           Q 160 145, 175 130
-           Q 180 115, 175 105"
+        d="M 128 155
+           Q 125 165, 130 180
+           Q 140 195, 150 200
+           Q 160 195, 170 180
+           Q 175 165, 172 155"
         fill="none"
         stroke={chainColor}
         strokeWidth="2"
@@ -109,8 +112,8 @@ export function Necklace({ color = '#FFD700', className = '' }: AccessoryProps) 
       {/* Chain detail - small links */}
       {[...Array(8)].map((_, i) => {
         const t = i / 7
-        const x = 125 + t * 50
-        const y = 105 + Math.sin(t * Math.PI) * 45
+        const x = 128 + t * 44
+        const y = 155 + Math.sin(t * Math.PI) * 45
         return (
           <circle
             key={i}
@@ -122,8 +125,8 @@ export function Necklace({ color = '#FFD700', className = '' }: AccessoryProps) 
         )
       })}
 
-      {/* Pendant */}
-      <g transform="translate(150, 150)">
+      {/* Pendant - at bottom of chain y=200 */}
+      <g transform="translate(150, 200)">
         {/* Heart shape pendant */}
         <path
           d="M 0 5
@@ -148,25 +151,26 @@ export function Sunglasses({ color = '#1C1C1C', className = '' }: AccessoryProps
   const frameColor = color
   const lensColor = '#2C2C2C'
 
+  // Eyes are at y=82-83, so sunglasses should be centered around y=82
   return (
     <g className={className} data-item="sunglasses">
-      {/* Left lens */}
+      {/* Left lens - centered on left eye (x=128, y=82) */}
       <ellipse
-        cx="130"
-        cy="55"
-        rx="18"
-        ry="14"
+        cx="128"
+        cy="82"
+        rx="16"
+        ry="12"
         fill={lensColor}
         stroke={frameColor}
         strokeWidth="3"
       />
 
-      {/* Right lens */}
+      {/* Right lens - centered on right eye (x=172, y=82) */}
       <ellipse
-        cx="170"
-        cy="55"
-        rx="18"
-        ry="14"
+        cx="172"
+        cy="82"
+        rx="16"
+        ry="12"
         fill={lensColor}
         stroke={frameColor}
         strokeWidth="3"
@@ -174,24 +178,24 @@ export function Sunglasses({ color = '#1C1C1C', className = '' }: AccessoryProps
 
       {/* Bridge */}
       <path
-        d="M 148 55 Q 150 52, 152 55"
+        d="M 144 82 Q 150 78, 156 82"
         fill="none"
         stroke={frameColor}
         strokeWidth="3"
       />
 
-      {/* Left temple (arm) */}
+      {/* Left temple (arm) - goes to left ear at x=100, y=95 */}
       <path
-        d="M 112 52 Q 108 52, 105 55 Q 102 58, 100 65"
+        d="M 112 80 Q 106 82, 102 88 Q 100 92, 100 98"
         fill="none"
         stroke={frameColor}
         strokeWidth="3"
         strokeLinecap="round"
       />
 
-      {/* Right temple (arm) */}
+      {/* Right temple (arm) - goes to right ear at x=200, y=95 */}
       <path
-        d="M 188 52 Q 192 52, 195 55 Q 198 58, 200 65"
+        d="M 188 80 Q 194 82, 198 88 Q 200 92, 200 98"
         fill="none"
         stroke={frameColor}
         strokeWidth="3"
@@ -199,8 +203,8 @@ export function Sunglasses({ color = '#1C1C1C', className = '' }: AccessoryProps
       />
 
       {/* Lens shine */}
-      <ellipse cx="125" cy="50" rx="5" ry="3" fill="white" opacity="0.2" />
-      <ellipse cx="165" cy="50" rx="5" ry="3" fill="white" opacity="0.2" />
+      <ellipse cx="123" cy="78" rx="4" ry="3" fill="white" opacity="0.2" />
+      <ellipse cx="167" cy="78" rx="4" ry="3" fill="white" opacity="0.2" />
     </g>
   )
 }
@@ -211,21 +215,23 @@ export function Sunglasses({ color = '#1C1C1C', className = '' }: AccessoryProps
 export function Earrings({ color = '#C0C0C0', className = '' }: AccessoryProps) {
   const gemColor = '#FF69B4'
 
+  // Ears are at x=100/200, y=95 with radius 12
+  // Earrings should hang from bottom of ears (y~100-105)
   return (
     <g className={className} data-item="earrings">
-      {/* Left earring */}
+      {/* Left earring - positioned at left ear (x=100, y=95) */}
       <g>
-        {/* Stud */}
-        <circle cx="105" cy="65" r="4" fill={color} />
+        {/* Stud at ear lobe */}
+        <circle cx="100" cy="102" r="4" fill={color} />
         {/* Drop chain */}
-        <line x1="105" y1="69" x2="105" y2="85" stroke={color} strokeWidth="1.5" />
+        <line x1="100" y1="106" x2="100" y2="120" stroke={color} strokeWidth="1.5" />
         {/* Gem */}
         <path
-          d="M 105 85 L 100 92 L 105 98 L 110 92 Z"
+          d="M 100 120 L 95 127 L 100 133 L 105 127 Z"
           fill={gemColor}
         />
         <path
-          d="M 102 89 L 105 92 L 108 89"
+          d="M 97 124 L 100 127 L 103 124"
           fill="none"
           stroke="white"
           strokeWidth="1"
@@ -233,19 +239,19 @@ export function Earrings({ color = '#C0C0C0', className = '' }: AccessoryProps) 
         />
       </g>
 
-      {/* Right earring */}
+      {/* Right earring - positioned at right ear (x=200, y=95) */}
       <g>
-        {/* Stud */}
-        <circle cx="195" cy="65" r="4" fill={color} />
+        {/* Stud at ear lobe */}
+        <circle cx="200" cy="102" r="4" fill={color} />
         {/* Drop chain */}
-        <line x1="195" y1="69" x2="195" y2="85" stroke={color} strokeWidth="1.5" />
+        <line x1="200" y1="106" x2="200" y2="120" stroke={color} strokeWidth="1.5" />
         {/* Gem */}
         <path
-          d="M 195 85 L 190 92 L 195 98 L 200 92 Z"
+          d="M 200 120 L 195 127 L 200 133 L 205 127 Z"
           fill={gemColor}
         />
         <path
-          d="M 192 89 L 195 92 L 198 89"
+          d="M 197 124 L 200 127 L 203 124"
           fill="none"
           stroke="white"
           strokeWidth="1"
@@ -265,9 +271,10 @@ export function Hat({ color = '#4169E1', className = '' }: AccessoryProps) {
   const billColor = adjustColor(color, -15)
   const billDarkColor = adjustColor(color, -45)
 
-  // Hat is shifted up by 20 units to sit above the face (not covering it)
+  // Head is ellipse at cy=90, ry=55, so top of head is at y=35
+  // Hat should sit on top of head
   return (
-    <g className={className} data-item="hat" transform="translate(0, -20)">
+    <g className={className} data-item="hat" transform="translate(0, 8)">
       {/* Define gradient for 3D crown effect */}
       <defs>
         <linearGradient id="capCrownGradient" x1="0%" y1="0%" x2="0%" y2="100%">

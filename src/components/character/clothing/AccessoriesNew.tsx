@@ -24,15 +24,17 @@ export function Tiara({ color = '#FFD700', className = '' }: AccessoryProps) {
   const darkerColor = adjustColor(color, -30)
   const lighterColor = adjustColor(color, 50)
 
+  // Head is ellipse at cy=90, ry=55, so top of head is at y=35
+  // Tiara band should sit at top of head around y=38-48
   return (
     <g className={className}>
-      {/* Base band */}
+      {/* Base band - sits on forehead/top of head */}
       <path
-        d="M 105 55 Q 115 50, 150 48 Q 185 50, 195 55 Q 190 60, 150 58 Q 110 60, 105 55 Z"
+        d="M 105 48 Q 115 42, 150 40 Q 185 42, 195 48 Q 190 52, 150 50 Q 110 52, 105 48 Z"
         fill={color}
       />
       <path
-        d="M 105 55 Q 115 50, 150 48 Q 185 50, 195 55"
+        d="M 105 48 Q 115 42, 150 40 Q 185 42, 195 48"
         fill="none"
         stroke={lighterColor}
         strokeWidth="1.5"
@@ -41,45 +43,45 @@ export function Tiara({ color = '#FFD700', className = '' }: AccessoryProps) {
 
       {/* Center spire (tallest) */}
       <path
-        d="M 145 48 L 150 20 L 155 48 Z"
+        d="M 145 40 L 150 12 L 155 40 Z"
         fill={color}
       />
-      <path d="M 148 45 L 150 25 L 152 45" fill={lighterColor} opacity="0.4" />
+      <path d="M 148 37 L 150 17 L 152 37" fill={lighterColor} opacity="0.4" />
       {/* Center jewel */}
-      <circle cx="150" cy="35" r="4" fill="#E0115F" />
-      <circle cx="149" cy="34" r="1.5" fill="white" opacity="0.6" />
+      <circle cx="150" cy="27" r="4" fill="#E0115F" />
+      <circle cx="149" cy="26" r="1.5" fill="white" opacity="0.6" />
 
       {/* Left inner spire */}
-      <path d="M 128 50 L 132 30 L 136 50 Z" fill={color} />
-      <path d="M 130 48 L 132 35 L 134 48" fill={lighterColor} opacity="0.4" />
-      <circle cx="132" cy="40" r="2.5" fill="#00CED1" />
-      <circle cx="131" cy="39" r="1" fill="white" opacity="0.5" />
+      <path d="M 128 42 L 132 22 L 136 42 Z" fill={color} />
+      <path d="M 130 40 L 132 27 L 134 40" fill={lighterColor} opacity="0.4" />
+      <circle cx="132" cy="32" r="2.5" fill="#00CED1" />
+      <circle cx="131" cy="31" r="1" fill="white" opacity="0.5" />
 
       {/* Right inner spire */}
-      <path d="M 164 50 L 168 30 L 172 50 Z" fill={color} />
-      <path d="M 166 48 L 168 35 L 170 48" fill={lighterColor} opacity="0.4" />
-      <circle cx="168" cy="40" r="2.5" fill="#00CED1" />
-      <circle cx="167" cy="39" r="1" fill="white" opacity="0.5" />
+      <path d="M 164 42 L 168 22 L 172 42 Z" fill={color} />
+      <path d="M 166 40 L 168 27 L 170 40" fill={lighterColor} opacity="0.4" />
+      <circle cx="168" cy="32" r="2.5" fill="#00CED1" />
+      <circle cx="167" cy="31" r="1" fill="white" opacity="0.5" />
 
       {/* Left outer spire (shorter) */}
-      <path d="M 112 52 L 115 38 L 118 52 Z" fill={color} />
-      <circle cx="115" cy="44" r="2" fill="#9370DB" />
-      <circle cx="114" cy="43" r="0.8" fill="white" opacity="0.5" />
+      <path d="M 112 46 L 115 32 L 118 46 Z" fill={color} />
+      <circle cx="115" cy="38" r="2" fill="#9370DB" />
+      <circle cx="114" cy="37" r="0.8" fill="white" opacity="0.5" />
 
       {/* Right outer spire (shorter) */}
-      <path d="M 182 52 L 185 38 L 188 52 Z" fill={color} />
-      <circle cx="185" cy="44" r="2" fill="#9370DB" />
-      <circle cx="184" cy="43" r="0.8" fill="white" opacity="0.5" />
+      <path d="M 182 46 L 185 32 L 188 46 Z" fill={color} />
+      <circle cx="185" cy="38" r="2" fill="#9370DB" />
+      <circle cx="184" cy="37" r="0.8" fill="white" opacity="0.5" />
 
       {/* Small decorative dots along band */}
-      <circle cx="122" cy="52" r="1.5" fill={lighterColor} />
-      <circle cx="140" cy="50" r="1.5" fill={lighterColor} />
-      <circle cx="160" cy="50" r="1.5" fill={lighterColor} />
-      <circle cx="178" cy="52" r="1.5" fill={lighterColor} />
+      <circle cx="122" cy="45" r="1.5" fill={lighterColor} />
+      <circle cx="140" cy="42" r="1.5" fill={lighterColor} />
+      <circle cx="160" cy="42" r="1.5" fill={lighterColor} />
+      <circle cx="178" cy="45" r="1.5" fill={lighterColor} />
 
       {/* Band shadow */}
       <path
-        d="M 108 58 Q 150 62, 192 58"
+        d="M 108 50 Q 150 54, 192 50"
         fill="none"
         stroke={darkerColor}
         strokeWidth="1"
@@ -182,14 +184,15 @@ export function Backpack({ color = '#FF6B6B', className = '' }: AccessoryProps) 
 export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
   const lighterColor = adjustColor(color, 60)
 
+  // Eyes are at y=82-83, glasses should be centered there
   return (
     <g className={className}>
-      {/* Left lens frame */}
+      {/* Left lens frame - centered on left eye (x=128, y=82) */}
       <ellipse
         cx="128"
-        cy="95"
-        rx="20"
-        ry="16"
+        cy="82"
+        rx="18"
+        ry="14"
         fill="none"
         stroke={color}
         strokeWidth="3"
@@ -197,14 +200,14 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
       {/* Left lens */}
       <ellipse
         cx="128"
-        cy="95"
-        rx="17"
-        ry="13"
+        cy="82"
+        rx="15"
+        ry="11"
         fill="rgba(200, 220, 255, 0.15)"
       />
       {/* Left lens reflection */}
       <path
-        d="M 118 88 Q 122 85, 128 86"
+        d="M 118 76 Q 122 73, 128 74"
         fill="none"
         stroke="white"
         strokeWidth="2"
@@ -212,12 +215,12 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
         strokeLinecap="round"
       />
 
-      {/* Right lens frame */}
+      {/* Right lens frame - centered on right eye (x=172, y=82) */}
       <ellipse
         cx="172"
-        cy="95"
-        rx="20"
-        ry="16"
+        cy="82"
+        rx="18"
+        ry="14"
         fill="none"
         stroke={color}
         strokeWidth="3"
@@ -225,14 +228,14 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
       {/* Right lens */}
       <ellipse
         cx="172"
-        cy="95"
-        rx="17"
-        ry="13"
+        cy="82"
+        rx="15"
+        ry="11"
         fill="rgba(200, 220, 255, 0.15)"
       />
       {/* Right lens reflection */}
       <path
-        d="M 162 88 Q 166 85, 172 86"
+        d="M 162 76 Q 166 73, 172 74"
         fill="none"
         stroke="white"
         strokeWidth="2"
@@ -242,16 +245,16 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
 
       {/* Bridge */}
       <path
-        d="M 148 95 Q 150 90, 152 95"
+        d="M 146 82 Q 150 78, 154 82"
         fill="none"
         stroke={color}
         strokeWidth="3"
         strokeLinecap="round"
       />
 
-      {/* Left temple arm */}
+      {/* Left temple arm - goes to left ear at x=100, y=95 */}
       <path
-        d="M 108 92 Q 100 92, 95 95 Q 88 100, 85 105"
+        d="M 110 80 Q 104 82, 100 88 Q 98 94, 98 100"
         fill="none"
         stroke={color}
         strokeWidth="3"
@@ -259,7 +262,7 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
       />
       {/* Left temple tip */}
       <path
-        d="M 85 105 Q 82 112, 85 118"
+        d="M 98 100 Q 96 106, 98 112"
         fill="none"
         stroke={lighterColor}
         strokeWidth="2"
@@ -267,9 +270,9 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
         opacity="0.6"
       />
 
-      {/* Right temple arm */}
+      {/* Right temple arm - goes to right ear at x=200, y=95 */}
       <path
-        d="M 192 92 Q 200 92, 205 95 Q 212 100, 215 105"
+        d="M 190 80 Q 196 82, 200 88 Q 202 94, 202 100"
         fill="none"
         stroke={color}
         strokeWidth="3"
@@ -277,7 +280,7 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
       />
       {/* Right temple tip */}
       <path
-        d="M 215 105 Q 218 112, 215 118"
+        d="M 202 100 Q 204 106, 202 112"
         fill="none"
         stroke={lighterColor}
         strokeWidth="2"
@@ -286,8 +289,8 @@ export function Glasses({ color = '#1a1a1a', className = '' }: AccessoryProps) {
       />
 
       {/* Nose pads (subtle) */}
-      <ellipse cx="142" cy="100" rx="2" ry="3" fill={lighterColor} opacity="0.4" />
-      <ellipse cx="158" cy="100" rx="2" ry="3" fill={lighterColor} opacity="0.4" />
+      <ellipse cx="142" cy="88" rx="2" ry="3" fill={lighterColor} opacity="0.4" />
+      <ellipse cx="158" cy="88" rx="2" ry="3" fill={lighterColor} opacity="0.4" />
     </g>
   )
 }
