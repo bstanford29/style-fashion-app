@@ -67,34 +67,30 @@ export function SpaceBuns({ color = '#4A3728', className = '' }: HairProps) {
 
 export function PixieCut({ color = '#2C1810', className = '' }: HairProps) {
   const darkerColor = adjustColor(color, -25)
-  const lighterColor = adjustColor(color, 15)
 
   return (
     <g className={className}>
-      {/* Main top volume */}
-      <ellipse cx="150" cy="55" rx="58" ry="30" fill={color} />
+      {/* Top of head - matching Space Buns positioning */}
+      <ellipse cx="150" cy="50" rx="52" ry="25" fill={color} />
 
-      {/* Textured top */}
-      <path d="M 98 60 Q 105 38, 122 32 Q 132 30, 142 35 L 138 60 Z" fill={color} />
-      <path d="M 132 32 Q 148 26, 162 30 Q 172 32, 178 38 L 168 60 Z" fill={color} />
-      <path d="M 168 35 Q 185 30, 200 42 Q 206 50, 204 62 L 185 65 Z" fill={color} />
+      {/* Textured top volume */}
+      <path d="M 100 55 Q 108 38, 125 32 Q 140 28, 155 32 L 150 55 Z" fill={color} />
+      <path d="M 145 32 Q 165 28, 180 35 Q 195 42, 200 55 L 175 55 Z" fill={color} />
 
-      {/* Side-swept bangs - STOP AT y=58 MAX */}
-      <path d="M 95 52 Q 85 62, 88 85 Q 90 105, 95 120 L 102 118 Q 98 102, 98 85 Q 98 65, 105 55 Z" fill={color} />
-      <path d="M 112 45 Q 125 50, 140 54 Q 158 58, 175 58 Q 185 56, 188 52 Q 172 55, 152 55 Q 132 52, 118 45 Z" fill={color} />
+      {/* Side hair - stays OUTSIDE face (x<95, x>205) */}
+      <path d="M 95 55 Q 85 72, 88 95 Q 90 115, 95 130 L 102 128 Q 98 112, 98 95 Q 98 75, 105 58 Z" fill={color} />
+      <path d="M 205 55 Q 215 72, 212 95 Q 210 115, 205 130 L 198 128 Q 202 112, 202 95 Q 202 75, 195 58 Z" fill={color} />
 
-      {/* Short sides - stays OUTSIDE face */}
-      <path d="M 95 68 Q 88 80, 90 100 Q 92 115, 98 125 L 105 122 Q 100 112, 98 100 Q 96 85, 100 72 Z" fill={color} />
-      <path d="M 205 68 Q 212 80, 210 100 Q 208 115, 202 125 L 195 122 Q 200 112, 202 100 Q 204 85, 200 72 Z" fill={color} />
+      {/* Bangs - matching Space Buns: y=45 to y=58 */}
+      <path d="M 122 45 Q 135 38, 150 40 Q 165 38, 178 45 Q 175 52, 172 58 Q 162 54, 150 56 Q 138 54, 128 58 Q 125 52, 122 45 Z" fill={color} />
 
       {/* Texture lines */}
-      <path d="M 110 55 L 115 72" stroke={darkerColor} strokeWidth="1.5" opacity="0.3" />
-      <path d="M 130 50 L 135 68" stroke={darkerColor} strokeWidth="1.5" opacity="0.3" />
-      <path d="M 158 48 L 162 65" stroke={darkerColor} strokeWidth="1.5" opacity="0.3" />
+      <path d="M 115 50 L 118 65" stroke={darkerColor} strokeWidth="1.5" opacity="0.3" />
+      <path d="M 140 45 L 142 60" stroke={darkerColor} strokeWidth="1.5" opacity="0.3" />
+      <path d="M 165 48 L 168 62" stroke={darkerColor} strokeWidth="1.5" opacity="0.3" />
 
-      {/* Highlights */}
-      <path d="M 120 42 Q 145 34, 172 42" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="4" strokeLinecap="round" />
-      <ellipse cx="106" cy="88" rx="4" ry="8" fill={lighterColor} opacity="0.15" />
+      {/* Highlight */}
+      <path d="M 135 45 Q 150 38, 165 45" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="4" strokeLinecap="round" />
     </g>
   )
 }
@@ -105,59 +101,40 @@ export function SideBraid({ color = '#8B4513', className = '' }: HairProps) {
 
   return (
     <g className={className}>
-      {/* Main hair mass covering top of head */}
-      <ellipse cx="148" cy="58" rx="56" ry="32" fill={color} />
+      {/* Top of head - matching Space Buns positioning */}
+      <ellipse cx="150" cy="50" rx="52" ry="25" fill={color} />
 
-      {/* Crown volume - fuller coverage */}
-      <path d="M 95 55 Q 110 32, 150 30 Q 190 32, 205 55 Q 185 45, 150 42 Q 115 45, 95 55 Z" fill={color} />
+      {/* Hair flowing to left side into braid - starts OUTSIDE face (x<95) */}
+      <path d="M 95 55 Q 78 80, 75 120 Q 72 160, 82 185 L 105 180 Q 98 158, 100 125 Q 102 90, 108 60 Z" fill={color} />
 
-      {/* Hair wrapping around sides of head */}
-      <path
-        d="M 95 52
-           Q 88 68, 92 88
-           Q 95 72, 100 58
-           Z"
-        fill={color}
-      />
-      <path
-        d="M 205 52
-           Q 212 68, 208 88
-           Q 205 72, 200 58
-           Z"
-        fill={color}
-      />
-
-      {/* Hair flowing to left side into braid */}
-      <path d="M 92 55 Q 78 75, 75 110 Q 72 145, 80 165 L 105 160 Q 100 145, 102 115 Q 105 82, 110 60 Z" fill={color} />
-
-      {/* Right side tucked behind ear */}
-      <path d="M 200 58 Q 212 78, 208 108 Q 206 130, 200 145 L 188 140 Q 192 125, 194 108 Q 198 82, 192 62 Z" fill={color} />
+      {/* Right side hair - stays OUTSIDE face (x>205) */}
+      <path d="M 205 55 Q 215 72, 212 100 Q 210 130, 205 155 L 198 152 Q 202 125, 202 100 Q 202 75, 195 58 Z" fill={color} />
 
       {/* Braid segments */}
       {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
-        const y = 168 + i * 20
+        const y = 188 + i * 20
         const offset = i % 2 === 0 ? -4 : 4
         return (
           <g key={i}>
-            <ellipse cx={90 + offset} cy={y} rx="14" ry="12" fill={color} />
-            <path d={`M ${83 + offset} ${y - 6} Q ${90 + offset} ${y}, ${97 + offset} ${y - 6}`} fill="none" stroke={darkerColor} strokeWidth="1.5" opacity="0.4" />
+            <ellipse cx={88 + offset} cy={y} rx="14" ry="12" fill={color} />
+            <path d={`M ${81 + offset} ${y - 6} Q ${88 + offset} ${y}, ${95 + offset} ${y - 6}`} fill="none" stroke={darkerColor} strokeWidth="1.5" opacity="0.4" />
           </g>
         )
       })}
 
       {/* Hair tie */}
-      <ellipse cx="90" cy="332" rx="10" ry="6" fill="#FF69B4" />
-      <ellipse cx="88" cy="330" rx="3" ry="2" fill="rgba(255,255,255,0.4)" />
+      <ellipse cx="88" cy="352" rx="10" ry="6" fill="#FF69B4" />
+      <ellipse cx="86" cy="350" rx="3" ry="2" fill="rgba(255,255,255,0.4)" />
 
       {/* Braid tail */}
-      <path d="M 83 338 Q 80 348, 86 358 Q 92 368, 88 378 L 96 378 Q 100 368, 96 358 Q 92 348, 98 338 Z" fill={color} />
+      <path d="M 81 358 Q 78 368, 84 378 Q 90 388, 86 398 L 94 398 Q 98 388, 94 378 Q 90 368, 96 358 Z" fill={color} />
 
-      {/* Bangs - STOP AT y=58 MAX (side swept style) */}
-      <path d="M 115 45 Q 135 38, 158 40 Q 172 42, 185 50 Q 180 55, 175 58 Q 160 54, 145 56 Q 130 54, 120 58 Q 118 52, 115 45 Z" fill={color} />
+      {/* Bangs - matching Space Buns: y=45 to y=58 */}
+      <path d="M 122 45 Q 135 38, 150 40 Q 165 38, 178 45 Q 175 52, 172 58 Q 162 54, 150 56 Q 138 54, 128 58 Q 125 52, 122 45 Z" fill={color} />
 
-      {/* Highlights */}
-      <path d="M 115 42 Q 148 32, 180 45" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
-      <ellipse cx="84" cy="185" rx="4" ry="6" fill={lighterColor} opacity="0.2" />
+      {/* Highlight */}
+      <path d="M 135 45 Q 150 38, 165 45" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
+      <ellipse cx="82" cy="205" rx="4" ry="6" fill={lighterColor} opacity="0.2" />
     </g>
   )
 }
