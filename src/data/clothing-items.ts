@@ -1,14 +1,14 @@
 /**
  * Clothing Items Data
- * Complete definitions for all 40 clothing items across 5 categories
- * (25 original + 15 new)
+ * Complete definitions for all 87 clothing items across 5 categories
+ * (40 original + 47 new princess/party themed)
  */
 
 import type { ClothingCategory, ClothingItem } from '@/lib/types'
 
 export const CLOTHING_ITEMS: ClothingItem[] = [
   // ==========================================================================
-  // HAIR (5 items) - zIndex: 60 (on top of head)
+  // HAIR (17 items) - zIndex: 60 (on top of head)
   // ==========================================================================
   {
     id: 'hair_001',
@@ -73,6 +73,79 @@ export const CLOTHING_ITEMS: ClothingItem[] = [
     category: 'hair',
     componentName: 'SideBraid',
     defaultColor: '#8B4513',
+    zIndex: 60,
+  },
+  // Princess/Party Hair Expansion (9 new)
+  {
+    id: 'hair_009',
+    name: 'Elegant Updo',
+    category: 'hair',
+    componentName: 'ElegantUpdo',
+    defaultColor: '#2C1810',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_010',
+    name: 'Long Curls',
+    category: 'hair',
+    componentName: 'LongCurls',
+    defaultColor: '#FFD700',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_011',
+    name: 'Half Up Crown',
+    category: 'hair',
+    componentName: 'HalfUpCrown',
+    defaultColor: '#8B4513',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_012',
+    name: 'Sleek Low Bun',
+    category: 'hair',
+    componentName: 'SleekLowBun',
+    defaultColor: '#1C1C1C',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_013',
+    name: 'Voluminous Waves',
+    category: 'hair',
+    componentName: 'VoluminousWaves',
+    defaultColor: '#D4A574',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_014',
+    name: 'Double Dutch Braids',
+    category: 'hair',
+    componentName: 'DoubleDutchBraids',
+    defaultColor: '#4A3728',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_015',
+    name: 'High Ponytail Glam',
+    category: 'hair',
+    componentName: 'HighPonytailGlam',
+    defaultColor: '#2C1810',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_016',
+    name: 'Afro Puffs',
+    category: 'hair',
+    componentName: 'AfroPuffs',
+    defaultColor: '#1C1C1C',
+    zIndex: 60,
+  },
+  {
+    id: 'hair_017',
+    name: 'Loose Fishtail',
+    category: 'hair',
+    componentName: 'LooseFishtail',
+    defaultColor: '#C68642',
     zIndex: 60,
   },
 
@@ -144,9 +217,90 @@ export const CLOTHING_ITEMS: ClothingItem[] = [
     defaultColor: '#4682B4',
     zIndex: 32,
   },
+  // Princess/Party Tops Expansion (10 new)
+  {
+    id: 'top_009',
+    name: 'Ball Gown',
+    category: 'top',
+    componentName: 'BallGown',
+    defaultColor: '#FFB6C1',
+    zIndex: 30,
+  },
+  {
+    id: 'top_010',
+    name: 'Mermaid Dress',
+    category: 'top',
+    componentName: 'MermaidDress',
+    defaultColor: '#40E0D0',
+    zIndex: 30,
+  },
+  {
+    id: 'top_011',
+    name: 'Off Shoulder Top',
+    category: 'top',
+    componentName: 'OffShoulderTop',
+    defaultColor: '#FFFFFF',
+    zIndex: 30,
+  },
+  {
+    id: 'top_012',
+    name: 'Velvet Cape',
+    category: 'top',
+    componentName: 'VelvetCape',
+    defaultColor: '#800020',
+    zIndex: 35,
+  },
+  {
+    id: 'top_013',
+    name: 'Sequin Tank',
+    category: 'top',
+    componentName: 'SequinTank',
+    defaultColor: '#FFD700',
+    zIndex: 30,
+  },
+  {
+    id: 'top_014',
+    name: 'Peplum Blouse',
+    category: 'top',
+    componentName: 'PeplumBlouse',
+    defaultColor: '#FF69B4',
+    zIndex: 30,
+  },
+  {
+    id: 'top_015',
+    name: 'Princess Gown',
+    category: 'top',
+    componentName: 'PrincessGown',
+    defaultColor: '#E6E6FA',
+    zIndex: 30,
+  },
+  {
+    id: 'top_016',
+    name: 'Tulle Party Dress',
+    category: 'top',
+    componentName: 'TullePartyDress',
+    defaultColor: '#FFB6C1',
+    zIndex: 30,
+  },
+  {
+    id: 'top_017',
+    name: 'Ruffle Crop Top',
+    category: 'top',
+    componentName: 'RuffleCropTop',
+    defaultColor: '#FF6B6B',
+    zIndex: 30,
+  },
+  {
+    id: 'top_018',
+    name: 'Royal Ballgown',
+    category: 'top',
+    componentName: 'RoyalBallgown',
+    defaultColor: '#4169E1',
+    zIndex: 30,
+  },
 
   // ==========================================================================
-  // BOTTOMS (8 items) - zIndex: 20 (over legs)
+  // BOTTOMS (17 items) - zIndex: 20 (over legs)
   // ==========================================================================
   {
     id: 'bottom_001',
@@ -213,9 +367,82 @@ export const CLOTHING_ITEMS: ClothingItem[] = [
     defaultColor: '#2C3E50',
     zIndex: 20,
   },
+  // Princess/Party Bottoms Expansion (9 new)
+  {
+    id: 'bottom_009',
+    name: 'Layered Tulle Skirt',
+    category: 'bottom',
+    componentName: 'LayeredTulleSkirt',
+    defaultColor: '#FFB6C1',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_010',
+    name: 'Sequin Mini Skirt',
+    category: 'bottom',
+    componentName: 'SequinMiniSkirt',
+    defaultColor: '#C0C0C0',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_011',
+    name: 'Satin Maxi Skirt',
+    category: 'bottom',
+    componentName: 'SatinMaxiSkirt',
+    defaultColor: '#800020',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_012',
+    name: 'Glitter Leggings',
+    category: 'bottom',
+    componentName: 'GlitterLeggings',
+    defaultColor: '#FFD700',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_013',
+    name: 'Velvet Pants',
+    category: 'bottom',
+    componentName: 'VelvetPants',
+    defaultColor: '#4B0082',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_014',
+    name: 'Bubble Skirt',
+    category: 'bottom',
+    componentName: 'BubbleSkirt',
+    defaultColor: '#FF69B4',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_015',
+    name: 'Metallic Shorts',
+    category: 'bottom',
+    componentName: 'MetallicShorts',
+    defaultColor: '#C0C0C0',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_016',
+    name: 'Tiered Ruffle Skirt',
+    category: 'bottom',
+    componentName: 'TieredRuffleSkirt',
+    defaultColor: '#E6E6FA',
+    zIndex: 20,
+  },
+  {
+    id: 'bottom_017',
+    name: 'Princess A-Line Skirt',
+    category: 'bottom',
+    componentName: 'PrincessALineSkirt',
+    defaultColor: '#ADD8E6',
+    zIndex: 20,
+  },
 
   // ==========================================================================
-  // SHOES (8 items) - zIndex: 10 (at feet level)
+  // SHOES (17 items) - zIndex: 10 (at feet level)
   // ==========================================================================
   {
     id: 'shoes_001',
@@ -282,9 +509,82 @@ export const CLOTHING_ITEMS: ClothingItem[] = [
     defaultColor: '#8B4513',
     zIndex: 10,
   },
+  // Princess/Party Shoes Expansion (9 new)
+  {
+    id: 'shoes_009',
+    name: 'Glass Slippers',
+    category: 'shoes',
+    componentName: 'GlassSlippers',
+    defaultColor: '#ADD8E6',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_010',
+    name: 'Strappy Heels',
+    category: 'shoes',
+    componentName: 'StrappyHeels',
+    defaultColor: '#FFD700',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_011',
+    name: 'Sparkle Flats',
+    category: 'shoes',
+    componentName: 'SparkleFlats',
+    defaultColor: '#C0C0C0',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_012',
+    name: 'Satin Pumps',
+    category: 'shoes',
+    componentName: 'SatinPumps',
+    defaultColor: '#FFB6C1',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_013',
+    name: 'Jeweled Sandals',
+    category: 'shoes',
+    componentName: 'JeweledSandals',
+    defaultColor: '#40E0D0',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_014',
+    name: 'Velvet Slippers',
+    category: 'shoes',
+    componentName: 'VelvetSlippers',
+    defaultColor: '#800020',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_015',
+    name: 'Platform Glitter',
+    category: 'shoes',
+    componentName: 'PlatformGlitter',
+    defaultColor: '#FF69B4',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_016',
+    name: 'Ankle Strap Heels',
+    category: 'shoes',
+    componentName: 'AnkleStrapHeels',
+    defaultColor: '#1C1C1C',
+    zIndex: 10,
+  },
+  {
+    id: 'shoes_017',
+    name: 'Pearl Flats',
+    category: 'shoes',
+    componentName: 'PearlFlats',
+    defaultColor: '#FFFAF0',
+    zIndex: 10,
+  },
 
   // ==========================================================================
-  // ACCESSORIES (8 items) - zIndex: 50-75 (varies by type)
+  // ACCESSORIES (18 items) - zIndex: 50-75 (varies by type)
   // ==========================================================================
   {
     id: 'accessory_001',
@@ -350,6 +650,87 @@ export const CLOTHING_ITEMS: ClothingItem[] = [
     componentName: 'Glasses',
     defaultColor: '#1a1a1a',
     zIndex: 65,
+  },
+  // Princess/Party Accessories Expansion (10 new)
+  {
+    id: 'accessory_009',
+    name: 'Diamond Tiara',
+    category: 'accessory',
+    componentName: 'DiamondTiara',
+    defaultColor: '#C0C0C0',
+    zIndex: 72,
+  },
+  {
+    id: 'accessory_010',
+    name: 'Pearl Necklace',
+    category: 'accessory',
+    componentName: 'PearlNecklace',
+    defaultColor: '#FFFAF0',
+    zIndex: 50,
+  },
+  {
+    id: 'accessory_011',
+    name: 'Chandelier Earrings',
+    category: 'accessory',
+    componentName: 'ChandelierEarrings',
+    defaultColor: '#FFD700',
+    zIndex: 55,
+  },
+  {
+    id: 'accessory_012',
+    name: 'Satin Gloves',
+    category: 'accessory',
+    componentName: 'SatinGloves',
+    defaultColor: '#FFFFFF',
+    zIndex: 40,
+  },
+  {
+    id: 'accessory_013',
+    name: 'Feather Boa',
+    category: 'accessory',
+    componentName: 'FeatherBoa',
+    defaultColor: '#FF69B4',
+    zIndex: 45,
+  },
+  {
+    id: 'accessory_014',
+    name: 'Clutch Purse',
+    category: 'accessory',
+    componentName: 'ClutchPurse',
+    defaultColor: '#C0C0C0',
+    zIndex: 45,
+  },
+  {
+    id: 'accessory_015',
+    name: 'Crown',
+    category: 'accessory',
+    componentName: 'Crown',
+    defaultColor: '#FFD700',
+    zIndex: 73,
+  },
+  {
+    id: 'accessory_016',
+    name: 'Masquerade Mask',
+    category: 'accessory',
+    componentName: 'MasqueradeMask',
+    defaultColor: '#800020',
+    zIndex: 66,
+  },
+  {
+    id: 'accessory_017',
+    name: 'Flower Crown',
+    category: 'accessory',
+    componentName: 'FlowerCrown',
+    defaultColor: '#FFB6C1',
+    zIndex: 71,
+  },
+  {
+    id: 'accessory_018',
+    name: 'Wand',
+    category: 'accessory',
+    componentName: 'Wand',
+    defaultColor: '#E6E6FA',
+    zIndex: 45,
   },
 ]
 

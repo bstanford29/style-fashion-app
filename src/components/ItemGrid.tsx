@@ -19,6 +19,17 @@ import {
   SideBraidThumbnail,
 } from './character/clothing/HairStylesNew'
 import {
+  ElegantUpdoThumbnail,
+  LongCurlsThumbnail,
+  HalfUpCrownThumbnail,
+  SleekLowBunThumbnail,
+  VoluminousWavesThumbnail,
+  DoubleDutchBraidsThumbnail,
+  HighPonytailGlamThumbnail,
+  AfroPuffsThumbnail,
+  LooseFishtailThumbnail,
+} from './character/clothing/HairStylesExpansion'
+import {
   BasicTShirtThumbnail,
   TankTopThumbnail,
   LongSleeveShirtThumbnail,
@@ -30,6 +41,18 @@ import {
   CardiganThumbnail,
   DenimJacketThumbnail,
 } from './character/clothing/TopsNew'
+import {
+  BallGownThumbnail,
+  MermaidDressThumbnail,
+  OffShoulderTopThumbnail,
+  VelvetCapeThumbnail,
+  SequinTankThumbnail,
+  PeplumBlouseThumbnail,
+  PrincessGownThumbnail,
+  TullePartyDressThumbnail,
+  RuffleCropTopThumbnail,
+  RoyalBallgownThumbnail,
+} from './character/clothing/TopsExpansion'
 import {
   JeansThumbnail,
   SkirtThumbnail,
@@ -43,6 +66,17 @@ import {
   JoggersThumbnail,
 } from './character/clothing/BottomsNew'
 import {
+  LayeredTulleSkirtThumbnail,
+  SequinMiniSkirtThumbnail,
+  SatinMaxiSkirtThumbnail,
+  GlitterLeggingsThumbnail,
+  VelvetPantsThumbnail,
+  BubbleSkirtThumbnail,
+  MetallicShortsThumbnail,
+  TieredRuffleSkirtThumbnail,
+  PrincessALineSkirtThumbnail,
+} from './character/clothing/BottomsExpansion'
+import {
   SneakersThumbnail,
   BalletFlatsThumbnail,
   BootsThumbnail,
@@ -55,6 +89,17 @@ import {
   LoafersThumbnail,
 } from './character/clothing/ShoesNew'
 import {
+  GlassSlippersThumbnail,
+  StrappyHeelsThumbnail,
+  SparkleFlatsThumbnail,
+  SatinPumpsThumbnail,
+  JeweledSandalsThumbnail,
+  VelvetSlippersThumbnail,
+  PlatformGlitterThumbnail,
+  AnkleStrapHeelsThumbnail,
+  PearlFlatsThumbnail,
+} from './character/clothing/ShoesExpansion'
+import {
   BowHeadbandThumbnail,
   NecklaceThumbnail,
   SunglassesThumbnail,
@@ -66,9 +111,22 @@ import {
   BackpackThumbnail,
   GlassesThumbnail,
 } from './character/clothing/AccessoriesNew'
+import {
+  DiamondTiaraThumbnail,
+  PearlNecklaceThumbnail,
+  ChandelierEarringsThumbnail,
+  SatinGlovesThumbnail,
+  FeatherBoaThumbnail,
+  ClutchPurseThumbnail,
+  CrownThumbnail,
+  MasqueradeMaskThumbnail,
+  FlowerCrownThumbnail,
+  WandThumbnail,
+} from './character/clothing/AccessoriesExpansion'
 
 // Map item IDs to their thumbnail components
 const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string }>> = {
+  // Hair
   hair_001: LongStraightHairThumbnail,
   hair_002: ShortBobHairThumbnail,
   hair_003: PonytailHairThumbnail,
@@ -77,6 +135,16 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
   hair_006: SpaceBunsThumbnail,
   hair_007: PixieCutThumbnail,
   hair_008: SideBraidThumbnail,
+  hair_009: ElegantUpdoThumbnail,
+  hair_010: LongCurlsThumbnail,
+  hair_011: HalfUpCrownThumbnail,
+  hair_012: SleekLowBunThumbnail,
+  hair_013: VoluminousWavesThumbnail,
+  hair_014: DoubleDutchBraidsThumbnail,
+  hair_015: HighPonytailGlamThumbnail,
+  hair_016: AfroPuffsThumbnail,
+  hair_017: LooseFishtailThumbnail,
+  // Tops
   top_001: BasicTShirtThumbnail,
   top_002: TankTopThumbnail,
   top_003: LongSleeveShirtThumbnail,
@@ -85,6 +153,17 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
   top_006: SundressThumbnail,
   top_007: CardiganThumbnail,
   top_008: DenimJacketThumbnail,
+  top_009: BallGownThumbnail,
+  top_010: MermaidDressThumbnail,
+  top_011: OffShoulderTopThumbnail,
+  top_012: VelvetCapeThumbnail,
+  top_013: SequinTankThumbnail,
+  top_014: PeplumBlouseThumbnail,
+  top_015: PrincessGownThumbnail,
+  top_016: TullePartyDressThumbnail,
+  top_017: RuffleCropTopThumbnail,
+  top_018: RoyalBallgownThumbnail,
+  // Bottoms
   bottom_001: JeansThumbnail,
   bottom_002: SkirtThumbnail,
   bottom_003: ShortsThumbnail,
@@ -93,6 +172,16 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
   bottom_006: OverallsThumbnail,
   bottom_007: TutuThumbnail,
   bottom_008: JoggersThumbnail,
+  bottom_009: LayeredTulleSkirtThumbnail,
+  bottom_010: SequinMiniSkirtThumbnail,
+  bottom_011: SatinMaxiSkirtThumbnail,
+  bottom_012: GlitterLeggingsThumbnail,
+  bottom_013: VelvetPantsThumbnail,
+  bottom_014: BubbleSkirtThumbnail,
+  bottom_015: MetallicShortsThumbnail,
+  bottom_016: TieredRuffleSkirtThumbnail,
+  bottom_017: PrincessALineSkirtThumbnail,
+  // Shoes
   shoes_001: SneakersThumbnail,
   shoes_002: BalletFlatsThumbnail,
   shoes_003: BootsThumbnail,
@@ -101,6 +190,16 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
   shoes_006: MaryJanesThumbnail,
   shoes_007: RainBootsThumbnail,
   shoes_008: LoafersThumbnail,
+  shoes_009: GlassSlippersThumbnail,
+  shoes_010: StrappyHeelsThumbnail,
+  shoes_011: SparkleFlatsThumbnail,
+  shoes_012: SatinPumpsThumbnail,
+  shoes_013: JeweledSandalsThumbnail,
+  shoes_014: VelvetSlippersThumbnail,
+  shoes_015: PlatformGlitterThumbnail,
+  shoes_016: AnkleStrapHeelsThumbnail,
+  shoes_017: PearlFlatsThumbnail,
+  // Accessories
   accessory_001: BowHeadbandThumbnail,
   accessory_002: NecklaceThumbnail,
   accessory_003: SunglassesThumbnail,
@@ -109,6 +208,16 @@ const THUMBNAIL_COMPONENTS: Record<string, React.ComponentType<{ color?: string 
   accessory_006: TiaraThumbnail,
   accessory_007: BackpackThumbnail,
   accessory_008: GlassesThumbnail,
+  accessory_009: DiamondTiaraThumbnail,
+  accessory_010: PearlNecklaceThumbnail,
+  accessory_011: ChandelierEarringsThumbnail,
+  accessory_012: SatinGlovesThumbnail,
+  accessory_013: FeatherBoaThumbnail,
+  accessory_014: ClutchPurseThumbnail,
+  accessory_015: CrownThumbnail,
+  accessory_016: MasqueradeMaskThumbnail,
+  accessory_017: FlowerCrownThumbnail,
+  accessory_018: WandThumbnail,
 }
 
 // -----------------------------------------------------------------------------

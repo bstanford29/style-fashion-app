@@ -16,6 +16,17 @@ import {
   SideBraid,
 } from './clothing/HairStylesNew'
 import {
+  ElegantUpdo,
+  LongCurls,
+  HalfUpCrown,
+  SleekLowBun,
+  VoluminousWaves,
+  DoubleDutchBraids,
+  HighPonytailGlam,
+  AfroPuffs,
+  LooseFishtail,
+} from './clothing/HairStylesExpansion'
+import {
   BasicTShirt,
   TankTop,
   LongSleeveShirt,
@@ -27,6 +38,18 @@ import {
   Cardigan,
   DenimJacket,
 } from './clothing/TopsNew'
+import {
+  BallGown,
+  MermaidDress,
+  OffShoulderTop,
+  VelvetCape,
+  SequinTank,
+  PeplumBlouse,
+  PrincessGown,
+  TullePartyDress,
+  RuffleCropTop,
+  RoyalBallgown,
+} from './clothing/TopsExpansion'
 import {
   Jeans,
   Skirt,
@@ -40,6 +63,17 @@ import {
   Joggers,
 } from './clothing/BottomsNew'
 import {
+  LayeredTulleSkirt,
+  SequinMiniSkirt,
+  SatinMaxiSkirt,
+  GlitterLeggings,
+  VelvetPants,
+  BubbleSkirt,
+  MetallicShorts,
+  TieredRuffleSkirt,
+  PrincessALineSkirt,
+} from './clothing/BottomsExpansion'
+import {
   Sneakers,
   BalletFlats,
   Boots,
@@ -52,6 +86,17 @@ import {
   Loafers,
 } from './clothing/ShoesNew'
 import {
+  GlassSlippers,
+  StrappyHeels,
+  SparkleFlats,
+  SatinPumps,
+  JeweledSandals,
+  VelvetSlippers,
+  PlatformGlitter,
+  AnkleStrapHeels,
+  PearlFlats,
+} from './clothing/ShoesExpansion'
+import {
   BowHeadband,
   Necklace,
   Sunglasses,
@@ -63,6 +108,18 @@ import {
   Backpack,
   Glasses,
 } from './clothing/AccessoriesNew'
+import {
+  DiamondTiara,
+  PearlNecklace,
+  ChandelierEarrings,
+  SatinGloves,
+  FeatherBoa,
+  ClutchPurse,
+  Crown,
+  MasqueradeMask,
+  FlowerCrown,
+  Wand,
+} from './clothing/AccessoriesExpansion'
 
 export interface SVGCharacterProps {
   /** Skin tone ID - skin01 through skin05 */
@@ -85,10 +142,23 @@ const HAIR_COMPONENTS: Record<string, React.ComponentType<{ color?: string; clas
   hair_006: SpaceBuns,
   hair_007: PixieCut,
   hair_008: SideBraid,
+  // Princess/Party Expansion
+  hair_009: ElegantUpdo,
+  hair_010: LongCurls,
+  hair_011: HalfUpCrown,
+  hair_012: SleekLowBun,
+  hair_013: VoluminousWaves,
+  hair_014: DoubleDutchBraids,
+  hair_015: HighPonytailGlam,
+  hair_016: AfroPuffs,
+  hair_017: LooseFishtail,
 }
 
 /** Hair styles that have parts that should render BEHIND the body (ponytails, braids, long hair) */
-const HAIR_RENDERS_BEHIND_BODY = ['hair_001', 'hair_003', 'hair_005', 'hair_008'] // Long straight, ponytail, braids, side braid
+const HAIR_RENDERS_BEHIND_BODY = [
+  'hair_001', 'hair_003', 'hair_005', 'hair_008', // Long straight, ponytail, braids, side braid
+  'hair_010', 'hair_011', 'hair_012', 'hair_013', 'hair_014', 'hair_015', 'hair_017', // Long curls, half up, low bun, waves, dutch braids, high ponytail, fishtail
+]
 
 const TOP_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
   top_001: BasicTShirt,
@@ -99,6 +169,17 @@ const TOP_COMPONENTS: Record<string, React.ComponentType<{ color?: string; class
   top_006: Sundress,
   top_007: Cardigan,
   top_008: DenimJacket,
+  // Princess/Party Expansion
+  top_009: BallGown,
+  top_010: MermaidDress,
+  top_011: OffShoulderTop,
+  top_012: VelvetCape,
+  top_013: SequinTank,
+  top_014: PeplumBlouse,
+  top_015: PrincessGown,
+  top_016: TullePartyDress,
+  top_017: RuffleCropTop,
+  top_018: RoyalBallgown,
 }
 
 const BOTTOM_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
@@ -110,6 +191,16 @@ const BOTTOM_COMPONENTS: Record<string, React.ComponentType<{ color?: string; cl
   bottom_006: Overalls,
   bottom_007: Tutu,
   bottom_008: Joggers,
+  // Princess/Party Expansion
+  bottom_009: LayeredTulleSkirt,
+  bottom_010: SequinMiniSkirt,
+  bottom_011: SatinMaxiSkirt,
+  bottom_012: GlitterLeggings,
+  bottom_013: VelvetPants,
+  bottom_014: BubbleSkirt,
+  bottom_015: MetallicShorts,
+  bottom_016: TieredRuffleSkirt,
+  bottom_017: PrincessALineSkirt,
 }
 
 const SHOES_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
@@ -121,6 +212,16 @@ const SHOES_COMPONENTS: Record<string, React.ComponentType<{ color?: string; cla
   shoes_006: MaryJanes,
   shoes_007: RainBoots,
   shoes_008: Loafers,
+  // Princess/Party Expansion
+  shoes_009: GlassSlippers,
+  shoes_010: StrappyHeels,
+  shoes_011: SparkleFlats,
+  shoes_012: SatinPumps,
+  shoes_013: JeweledSandals,
+  shoes_014: VelvetSlippers,
+  shoes_015: PlatformGlitter,
+  shoes_016: AnkleStrapHeels,
+  shoes_017: PearlFlats,
 }
 
 const ACCESSORY_COMPONENTS: Record<string, React.ComponentType<{ color?: string; className?: string }>> = {
@@ -132,6 +233,17 @@ const ACCESSORY_COMPONENTS: Record<string, React.ComponentType<{ color?: string;
   accessory_006: Tiara,
   accessory_007: Backpack,
   accessory_008: Glasses,
+  // Princess/Party Expansion
+  accessory_009: DiamondTiara,
+  accessory_010: PearlNecklace,
+  accessory_011: ChandelierEarrings,
+  accessory_012: SatinGloves,
+  accessory_013: FeatherBoa,
+  accessory_014: ClutchPurse,
+  accessory_015: Crown,
+  accessory_016: MasqueradeMask,
+  accessory_017: FlowerCrown,
+  accessory_018: Wand,
 }
 
 export function SVGCharacter({

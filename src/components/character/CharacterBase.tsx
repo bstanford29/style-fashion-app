@@ -14,7 +14,7 @@
  */
 
 export interface CharacterBaseProps {
-  /** Skin tone ID - skin01 through skin05 */
+  /** Skin tone ID - skin01 through skin10 */
   skinTone: string
   /** Optional className for the SVG */
   className?: string
@@ -27,6 +27,11 @@ const SKIN_TONES: Record<string, { base: string; shadow: string; highlight: stri
   skin03: { base: '#D2691E', shadow: '#B85A18', highlight: '#E8854A', blush: '#C4604A' },
   skin04: { base: '#8B4513', shadow: '#6B350F', highlight: '#A85A28', blush: '#7A4030' },
   skin05: { base: '#4A2C2A', shadow: '#3A2220', highlight: '#5E3A38', blush: '#4A3035' },
+  skin06: { base: '#C68642', shadow: '#A66B2E', highlight: '#D9A066', blush: '#B8734A' }, // Warm Caramel
+  skin07: { base: '#A0522D', shadow: '#804020', highlight: '#C06A3D', blush: '#8B4A35' }, // Golden Brown
+  skin08: { base: '#6F4E37', shadow: '#553D2A', highlight: '#8B6347', blush: '#5F4535' }, // Rich Mahogany
+  skin09: { base: '#5D3A1A', shadow: '#462C14', highlight: '#7A4D28', blush: '#4D3020' }, // Deep Cocoa
+  skin10: { base: '#3B2219', shadow: '#2A1810', highlight: '#4D3025', blush: '#352018' }, // Espresso
 }
 
 export function CharacterBase({ skinTone, className = '' }: CharacterBaseProps) {
